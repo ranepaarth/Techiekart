@@ -1,32 +1,57 @@
 import React, { useState } from "react";
+import FilterSection from "../components/FilterSection";
 import Loading from "../components/Loading";
-import Product from "../components/Product";
 import ProductDetailModal from "../components/ProductDetailModal";
+import SortSection from "../components/SortSection";
+import { useFilterContext } from "../context/filterContext";
 import { useProductContext } from "../context/ProductContext";
+import GridView from "../components/GridView";
+import ListView from "../components/ListView";
+import Categories from "../components/Categories";
 
 const ProductPage = () => {
   const { isLoading, products } = useProductContext();
-  // console.log(isLoading)
-
-  const [detail,setDetail] = useState([])
-
-  // console.log(detail)
+  const { filter_products, all_products, grid_view } = useFilterContext();
 
   if (isLoading) return <Loading />;
   else {
     return (
-      <div>
-      <ProductDetailModal details={detail}/>
-        {products.map((currElem) => {
-          return (
-            <section key={currElem.id} className='flex flex-col items-start mb-4'>
-              <Product key={currElem.id} {...currElem} />
-              <button onClick={()=>setDetail([currElem])}>view detail</button>
-            </section>
-          );
-        })}
-        {/* Products Page */}
-      </div>
+      <>
+        <div className="flex gap-4 px-4 py-4 h-[100] pt-28 lg:pt-32">
+          <aside
+            className={`bg-pink-200 h-[82dvh] lg:h-[80dvh] w-[28dvw] md:w-[30dvw] lg:w-[16dvw] xl:w-[18dvw] fixed`}
+            style={{ maxHeight: "100dvh" }}
+          >
+            <div className="">
+              <FilterSection />
+            </div>
+          </aside>
+          {/* Product card */}
+
+          <main className="w-[64dvw] lg:w-[78dvw] ml-auto lg:ml-56 xl:ml-72">
+            <header className="p-2 border rounded-lg shadow-sm w-[64dvw] lg:w-[78dvw]">
+              <SortSection />
+            </header>
+            {/* <section className="mt-4 w-[60dvw] md:w-[70dvw] lg:w-[83dvw] grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+              {filter_products.map((currElem) => {
+                return (
+                  <article
+                    key={currElem.id}
+                    className="bg-pink-300 p-2 h-[25dvh]"
+                  >
+                    {setGridView ? <div>Grid</div> :<ProductList key={currElem.id} {...currElem} />}
+                  </article>
+                );
+              })}
+            </section> */}
+            {grid_view ? (
+              <GridView products={filter_products} />
+            ) : (
+              <ListView products={filter_products} />
+            )}
+          </main>
+        </div>
+      </>
     );
   }
 };
