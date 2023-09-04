@@ -1,13 +1,12 @@
-import React from "react";
+import React from 'react'
 
 const Product = (currElem) => {
-  const { title } = currElem;
-
-  return (
-    <div>
-      <span>{title}</span>
+    // console.log(currElem);
+  return (<div className='flex flex-col gap-4'>
+    <span>{currElem.title}</span>
+    <p>₹{currElem.price}</p>
     </div>
-  );
-};
+  )
+}
 
-export default Product;
+export default Product
