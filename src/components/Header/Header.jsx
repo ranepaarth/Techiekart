@@ -6,11 +6,11 @@ import HorizontalLine from "./HorizontalLine";
 import SubHeader from "./SubHeader";
 const Header = () => {
   return (
-    <header className="shadow-sm">
-      <div className="flex items-center justify-between p-2 text-sm">
+    <header className="shadow-sm fixed min-w-full bg-white z-10">
+      <div className="flex items-center justify-between p-2 text-sm md:px-12 lg:px-24">
         <NavLink to="/">
           <span>
-            <h2 className="text-xl font-semibold">Logo</h2>
+            <h2 className="text-xl font-semibold lg:text-3xl">Logo</h2>
           </span>
         </NavLink>
         <div>
