@@ -3,7 +3,7 @@ import Categories from "./Categories";
 
 const FilterSection = () => {
   return (
-    <div className="flex flex-col items-center cursor-default">
+    <div className="flex flex-col cursor-default">
       <span className="p-2 cursor-pointer">
         <Categories />
       </span>
