@@ -1,4 +1,4 @@
-import { useContext, useReducer, useEffect } from "react";
+import { useContext, useReducer, useEffect, createContext } from "react";
 import { useProductContext } from "./ProductContext";
 
 import reducer from "../reducers/filterReducer";
