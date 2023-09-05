@@ -8,10 +8,10 @@ const SortSection = () => {
   // console.log(grid_view);
   return (
     <div className="text-sm flex justify-between items-center xl:px-28">
-      <span className="flex gap-2 md:text-lg">
+      <span className="flex gap-2 md:text-xl">
         <button
           className={`${
-            grid_view ? "bg-pink-500 text-white" : ""
+            grid_view ? "bg-pink-500 text-white" : "text-pink-600"
           } bg-pink-200 p-1 rounded-md`}
           onClick={setGridView}
         >
@@ -20,7 +20,7 @@ const SortSection = () => {
         <button
           className={`
             ${
-              grid_view ? "" : "bg-pink-500 text-white"
+              grid_view ? "text-pink-600" : "bg-pink-500 text-white"
              } bg-pink-200 p-1 rounded-md`}
           onClick={setListView}
         >
