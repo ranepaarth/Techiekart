@@ -2,8 +2,9 @@ import React from 'react'
 
 const Product = (currElem) => {
     // console.log(currElem);
-  return (<div className='flex flex-col gap-4'>
-    <span>{currElem.title}</span>
+  return (<div className='flex flex-col gap-4 relative'>
+    <span className='text-xs text-white absolute left-0'>{currElem.category}</span>
+    <span className='pt-6'>{currElem.title}</span>
     <p>₹{currElem.price}</p>
     </div>
   )
