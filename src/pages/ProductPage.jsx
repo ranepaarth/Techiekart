@@ -1,34 +1,36 @@
-import React, { useState } from "react";
+import React from "react";
+
 import FilterSection from "../components/FilterSection";
 import Loading from "../components/Loading";
-import ProductDetailModal from "../components/ProductDetailModal";
 import SortSection from "../components/SortSection";
-import { useFilterContext } from "../context/filterContext";
-import { useProductContext } from "../context/ProductContext";
 import GridView from "../components/GridView";
 import ListView from "../components/ListView";
-import Categories from "../components/Categories";
+
+import { useFilterContext } from "../context/filterContext";
+import { useProductContext } from "../context/ProductContext";
+
 
 const ProductPage = () => {
-  const { isLoading, products } = useProductContext();
-  const { filter_products, all_products, grid_view } = useFilterContext();
+  const { isLoading } = useProductContext();
+  const { filter_products, grid_view } = useFilterContext();
+
 
   if (isLoading) return <Loading />;
   else {
     return (
       <>
-        <div className="flex gap-4 px-4 py-4 h-[100] pt-28 lg:pt-32">
-          <aside
-            className={`bg-pink-200 h-[82dvh] lg:h-[80dvh] w-[28dvw] md:w-[30dvw] lg:w-[16dvw] xl:w-[18dvw] fixed`}
-            style={{ maxHeight: "100dvh" }}
-          >
-            <div className="">
+        <div className="flex gap-4 pr-2 py-4 h-[100] pt-28 lg:pt-32">
+          <div className="pl-2 lg:pl-4">
+            <aside
+              className={`bg-pink-200 h-[82dvh] lg:h-[80dvh] w-[28dvw] md:w-[30dvw] lg:w-[16dvw] xl:w-[18dvw] fixed`}
+              style={{ maxHeight: "100dvh" }}
+            >
               <FilterSection />
-            </div>
-          </aside>
+            </aside>
+          </div>
           {/* Product card */}
 
-          <main className="w-[64dvw] lg:w-[78dvw] ml-auto lg:ml-56 xl:ml-72">
+          <main className="w-[64dvw] lg:w-[78dvw] ml-auto lg:ml-48 xl:ml-[17rem]">
             <header className="p-2 border rounded-lg shadow-sm w-[64dvw] lg:w-[78dvw]">
               <SortSection />
             </header>
