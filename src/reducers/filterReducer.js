@@ -92,6 +92,19 @@ const filterReducer = (state, action) => {
         ...state,
         filter_products: category_products,
       };
+
+    case "CLEAR_FILTER":
+      const allProducts = action.payload;
+
+      console.log(allProducts);
+      return {
+        ...state,
+        filter_products: allProducts,
+        filters:{
+          text:"",
+        }
+      };
+
     default:
       return state;
   }

@@ -10,9 +10,9 @@ const initialState = {
   all_products: [],
   grid_view: true,
   sorting_value: "lowest",
-  filters:{
-    text:"",
-  }
+  filters: {
+    text: "",
+  },
 };
 
 export const FIlterContextProvider = ({ children }) => {
@@ -33,26 +33,30 @@ export const FIlterContextProvider = ({ children }) => {
 
   const sorting = (event) => {
     let userValue = event.target.value;
-    dispatch({ type: "GET_SORT_VALUE",payload: userValue });
+    dispatch({ type: "GET_SORT_VALUE", payload: userValue });
   };
 
   const updateFilterValue = (event) => {
     let name = event.target.name;
     let value = event.target.value;
 
-
-    return dispatch({ type: "UPDATE_FILTER_VALUE",payload:{name,value}});
-  }
+    return dispatch({ type: "UPDATE_FILTER_VALUE", payload: { name, value } });
+  };
 
   const setCategory = (category) => {
-    console.log(category);
-    return dispatch({ type: "SET_CATEGORY",payload:{category,products}})
-  }
+    // console.log(category);
+    return dispatch({ type: "SET_CATEGORY", payload: { category, products } });
+  };
+
+  const clearFilter = () => {
+    console.log("clear");
+    return dispatch({type:"CLEAR_FILTER",payload:products})
+  };
 
   useEffect(() => {
-    dispatch({type:"FILTER_PRODUCTS"})
-    dispatch({ type: "SORTING_PRODUCTS"});
-  }, [products,state.sorting_value,state.filters]);
+    dispatch({ type: "FILTER_PRODUCTS" });
+    dispatch({ type: "SORTING_PRODUCTS" });
+  }, [products, state.sorting_value, state.filters]);
 
   useEffect(() => {
     dispatch({ type: "LOAD_FILTER_PRODUCTS", payload: products });
@@ -60,7 +64,15 @@ export const FIlterContextProvider = ({ children }) => {
 
   return (
     <FilterContext.Provider
-      value={{ ...state, setGridView, setListView, sorting,updateFilterValue,setCategory}}
+      value={{
+        ...state,
+        setGridView,
+        setListView,
+        sorting,
+        updateFilterValue,
+        setCategory,
+        clearFilter,
+      }}
     >
       {children}
     </FilterContext.Provider>
