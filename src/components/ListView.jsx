@@ -24,7 +24,7 @@ const ListView = ({ products }) => {
         return (
           <article
             key={currElem.id}
-            className="bg-pink-300 p-2 h-[25dvh] flex relative"
+            className="bg-pink-300 w-[64dvw] lg:w-[75dvw] xl:w-[79dvw] p-2 h-[25dvh] xl:ml-[3rem] flex relative"
           >
             <Product key={currElem.id} {...currElem} />
             <button
