@@ -11,7 +11,7 @@ const ListView = ({ products }) => {
       <>
         <ProductDetailModal details={details} />
         <button
-          className="z-50 absolute top-14 right-28"
+          className="z-50 absolute top-16 right-14 text-lg"
           onClick={() => setShow(!show)}
         >
           close
