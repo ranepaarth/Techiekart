@@ -15,7 +15,7 @@ const initialState = {
   products: [],
 };
 
-const API = "https://dummyjson.com/products";
+const API = "https://dummyjson.com/products?limit=20";
 // const API = "https://api.pujakaitem.com/api/products"
 const AppProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
