@@ -1,5 +1,4 @@
 import {
-  useState,
   useEffect,
   useContext,
   createContext,
@@ -16,7 +15,7 @@ const initialState = {
   products: [],
 };
 
-const API = "https://fakestoreapi.com/products";
+const API = "https://dummyjson.com/products";
 // const API = "https://api.pujakaitem.com/api/products"
 const AppProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
@@ -26,7 +25,8 @@ const AppProvider = ({ children }) => {
     try {
       const response = await axios.get(API);
       const products = await response.data;
-      dispatch({ type: "SET_API_DATA", payload: products });
+      // console.log(products.products);
+      dispatch({ type: "SET_API_DATA", payload: products.products });
     } catch (error) {
       dispatch({ type: "SET_ERROR" });
     }
