@@ -5,12 +5,12 @@ import { useCartContext } from "../context/cartContext";
 import { NavLink } from "react-router-dom";
 
 const Cart = () => {
-  const { cart,emptyCart } = useCartContext();
+  const { cart, emptyCart } = useCartContext();
   // console.log(cart);
   if (cart.length === 0) return <EmptyCart />;
   else
     return (
-      <div className="flex flex-col items-center">
+      <div className="flex flex-col items-center overflow-hidden">
         <header className="pt-28 tracking-wide font-medium w-fit border-b-2 pb-5 flex">
           Cart Subtotal ({cart.length} items):
           <span className="text-orange-600 font-semibold">₹0</span>
@@ -26,7 +26,10 @@ const Cart = () => {
               Checkout
             </span>
           </NavLink>
-          <span className="bg-red-400 text-white rounded-md p-2 shadow-md cursor-pointer" onClick={()=>emptyCart()} >
+          <span
+            className="bg-red-400 text-white rounded-md p-2 shadow-md cursor-pointer"
+            onClick={() => emptyCart()}
+          >
             Clear Cart
           </span>
         </div>
@@ -35,7 +38,12 @@ const Cart = () => {
             <section className=" md:bg-pink-50 lg:bg-pink-100 xl:bg-pink-200 flex flex-col gap-5">
               {cart.map((product) => {
                 console.log(product);
-                return <CartItem key={product.id} {...product} />;
+                return (
+                  <>
+                    <CartItem key={product.id} {...product} />
+                    {/* <div className="w-screen border"></div> */}
+                  </>
+                );
               })}
             </section>
           }
