@@ -3,21 +3,30 @@ import Product from "./Product";
 import ProductDetailModal from "./ProductDetailModal";
 
 const ListView = ({ products }) => {
-  console.log(products);
   const [details, setDetails] = useState([]);
   const [show, setShow] = useState(false);
+
+  const closeProductDetails = () => {
+    setShow(!show)
+  }
+
+  const openProductDetails = () => {
+    setShow(!show)
+  }
+
   if (show)
     return (
       <>
-        <ProductDetailModal details={details} />
+        <ProductDetailModal details={details} closeProductDetails={closeProductDetails}/>
         <button
           className="z-50 absolute top-16 right-14 text-lg"
-          onClick={() => setShow(!show)}
+          onClick={() => closeProductDetails()}
         >
           close
         </button>
       </>
     );
+
   return (
     <section className="flex flex-col gap-4 mt-2">
       {products.map((currElem) => {
@@ -31,7 +40,7 @@ const ListView = ({ products }) => {
               className="flex flex-col justify-end absolute bottom-4 right-4"
               onClick={() => {
                 setDetails([currElem]);
-                setShow(!show);
+                openProductDetails();
               }}
             >
               View Detail

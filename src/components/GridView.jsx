@@ -1,5 +1,4 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
 import Product from "./Product";
 import ProductDetailModal from "./ProductDetailModal";
 
@@ -8,13 +7,22 @@ import { AiOutlineClose } from "react-icons/ai";
 const GridView = ({ products }) => {
   const [details, setDetails] = useState([]);
   const [show, setShow] = useState(false);
+
+  const closeProductDetails = () => {
+    setShow(!show)
+  }
+
+  const openProductDetails = () => {
+    setShow(!show)
+  }
+
   if (show)
     return (
       <>
-        <ProductDetailModal details={details} />
+        <ProductDetailModal details={details} closeProductDetails={closeProductDetails}/>
         <button
           className="z-50 absolute top-16 right-14 text-lg"
-          onClick={() => setShow(!show)}
+          onClick={() => closeProductDetails()}
         >
           <AiOutlineClose />
         </button>
@@ -37,7 +45,7 @@ const GridView = ({ products }) => {
               <button
                 onClick={() => {
                   setDetails([currElem]);
-                  setShow(!show);
+                  openProductDetails();
                 }}
               >
                 View Detail
