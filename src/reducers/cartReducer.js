@@ -2,7 +2,7 @@ const cartReducer = (state, action) => {
   switch (action.type) {
     case "ADD_TO_CART":
       let { amount, product } = action.payload;
-      console.log(product)
+      // console.log(product)
 
       //prevent duplicate
 
