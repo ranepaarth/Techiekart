@@ -22,9 +22,9 @@ const CartItem = ({ ...product }) => {
 
   return (
     <>
-      <article className="flex justify-center gap-2 mt-5 cursor-default bg-red-100 px-2">
-        <figure className="flex justify-center items-start w-fit">
-          <img src={image} alt="" className="w-40 h-28" />
+      <article className="flex justify-center gap-2 mt-5 cursor-default px-2">
+        <figure className="flex justify-center items-start w-fit shadow-md border">
+          <img src={image} alt="" className="h-28 w-40"/>
         </figure>
         <aside className="flex flex-col gap-1 w-[60%] min-h-full text-start pl-5">
           <p className="[font-weight:600] text-neutral-400 text-xs">Id: {id}</p>
