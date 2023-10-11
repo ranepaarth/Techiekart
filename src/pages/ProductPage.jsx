@@ -30,7 +30,7 @@ const ProductPage = () => {
           </div>
 
           {/* Products container */}
-          <main className="ml-auto lg:ml-48 md:mr-3">
+          <main className="ml-auto lg:ml-48 md:mr-3 pb-4">
             <header className="p-2 border rounded-lg shadow-sm w-[64dvw] lg:w-[75dvw] xl:w-[79dvw] ml-auto xl:ml-[3rem]">
               <SortSection />
             </header>
@@ -47,15 +47,3 @@ const ProductPage = () => {
 };
 
 export default ProductPage;
-{/* <section className="mt-4 w-[60dvw] md:w-[70dvw] lg:w-[83dvw] grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-              {filter_products.map((currElem) => {
-                return (
-                  <article
-                    key={currElem.id}
-                    className="bg-pink-300 p-2 h-[25dvh]"
-                  >
-                    {setGridView ? <div>Grid</div> :<ProductList key={currElem.id} {...currElem} />}
-                  </article>
-                );
-              })}
-            </section> */}
