@@ -1,11 +1,17 @@
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { useCartContext } from "../context/cartContext";
 // import CartAmountToggle from "./CartAmountToggle";
 
 const ProductDetailModal = ({ details,closeProductDetails}) => {
   const { addToCart } = useCartContext();
+  const [amount, setAmount] = useState(1);
+
+
+
   let product;
 
+  // console.log(details);
   if (details.length === 0) return;
   else
     return (
