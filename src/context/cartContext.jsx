@@ -20,8 +20,9 @@ const initialState = {
 const CartContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
-  const addToCart = (product, amount) => {
-    dispatch({ type: "ADD_TO_CART", payload: { product, amount } });
+  const addToCart = (product, amount=1) => {
+    // console.log(product);
+    dispatch({ type: "ADD_TO_CART", payload: {product, amount } });
   };
 
   const removeProduct = (id) => {
