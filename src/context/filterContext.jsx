@@ -8,7 +8,6 @@ const FilterContext = createContext();
 const initialState = {
   filter_products: [],
   all_products: [],
-  grid_view: true,
   sorting_value: "lowest",
   filters: {
     text: "",
@@ -21,15 +20,6 @@ export const FIlterContextProvider = ({ children }) => {
   // console.log(products);
 
   const [state, dispatch] = useReducer(reducer, initialState);
-
-  /*set grid view */
-  const setGridView = () => {
-    return dispatch({ type: "SET_GRID_VIEW" });
-  };
-
-  const setListView = () => {
-    return dispatch({ type: "SET_LIST_VIEW" });
-  };
 
   const sorting = (event) => {
     let userValue = event.target.value;
@@ -66,8 +56,6 @@ export const FIlterContextProvider = ({ children }) => {
     <FilterContext.Provider
       value={{
         ...state,
-        setGridView,
-        setListView,
         sorting,
         updateFilterValue,
         setCategory,
