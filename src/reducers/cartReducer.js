@@ -2,10 +2,9 @@ const cartReducer = (state, action) => {
   switch (action.type) {
     case "ADD_TO_CART":
       let { amount, product } = action.payload;
-      // console.log(product)
+      // console.log(product);
 
       //prevent duplicate
-
       let existingProduct = state.cart.find(
         (currProduct) => currProduct.id === product.id
       );
@@ -31,12 +30,15 @@ const cartReducer = (state, action) => {
         let cartProduct;
         cartProduct = {
           id: product.id,
-          name: product.title,
+          name: product.name || product.title,
           amount,
-          image:product.thumbnail,
+          image: product.image || product.thumbnail,
           price: product.price,
           desc: product.description,
+          stock: product.stock,
+          brand:product.brand,
         };
+        // console.log(cartProduct);
         return {
           ...state,
           cart: [...state.cart, cartProduct],
