@@ -36,13 +36,12 @@ const Cart = () => {
         <main className="mt-5 flex flex-col justify-center items-center">
           {
             <section className=" md:bg-pink-50 lg:bg-pink-100 xl:bg-pink-200 flex flex-col gap-5">
-              {cart.map((product) => {
-                console.log(product);
+              {cart.map((product,index) => {
                 return (
-                  <>
-                    <CartItem key={product.id} {...product} />
-                    {/* <div className="w-screen border"></div> */}
-                  </>
+                  <div key={index}>
+                    {/* {console.log(product)} */}
+                    <CartItem {...product} />
+                  </div>
                 );
               })}
             </section>
