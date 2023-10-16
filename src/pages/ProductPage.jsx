@@ -4,7 +4,6 @@ import FilterSection from "../components/FilterSection";
 import Loading from "../components/Loading";
 import SortSection from "../components/SortSection";
 import GridView from "../components/GridView";
-import ListView from "../components/ListView";
 
 import { useFilterContext } from "../context/filterContext";
 import { useProductContext } from "../context/ProductContext";
@@ -12,17 +11,16 @@ import { useProductContext } from "../context/ProductContext";
 
 const ProductPage = () => {
   const { isLoading } = useProductContext();
-  const { filter_products, grid_view } = useFilterContext();
-
+  const { filter_products } = useFilterContext();
 
   if (isLoading) return <Loading />;
   else {
     return (
       <>
-        <div className="flex gap-4 pr-2 h-[100] pt-28 lg:pt-32 md:px-2">
+        <div className="flex gap-4 pr-2 h-[100] pt-[6.05rem] lg:pt-[6.7rem] md:px-2">
           <div className="">
             <aside
-              className={`bg-pink-200 h-[82dvh] lg:h-[80dvh] w-[28dvw] md:w-[27dvw] lg:w-[190px] xl:w-[230px] ml-2 fixed`}
+              className={`border-r border-neutral-400 h-full w-[28dvw] md:w-[27dvw] lg:w-[190px] xl:w-[230px] fixed`}
               // style={{ maxHeight: "100dvh" }}
             >
               <FilterSection />
@@ -31,14 +29,15 @@ const ProductPage = () => {
 
           {/* Products container */}
           <main className="ml-auto lg:ml-48 md:mr-3 pb-4">
-            <header className="p-2 border rounded-lg shadow-sm w-[64dvw] lg:w-[75dvw] xl:w-[79dvw] ml-auto xl:ml-[3rem]">
+            <header className="p-2 mt-3 border rounded-lg shadow-sm w-[64dvw] lg:w-[75dvw] xl:w-[79dvw] ml-auto xl:ml-[3rem]">
               <SortSection />
             </header>
-            {grid_view ? (
+            {/* {grid_view ? (
               <GridView products={filter_products} />
             ) : (
               <ListView products={filter_products} />
-            )}
+            )} */}
+              <GridView products={filter_products} />
           </main>
         </div>
       </>
