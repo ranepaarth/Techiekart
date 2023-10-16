@@ -8,18 +8,23 @@ const GridView = ({ products }) => {
   const [details, setDetails] = useState([]);
   const [show, setShow] = useState(false);
 
-  const closeProductDetails = () => {
-    setShow(!show)
-  }
 
-  const openProductDetails = () => {
-    setShow(!show)
-  }
+  const closeProductDetails = () => {
+    setShow(!show);
+  };
+
+  const openProductDetails = (currElem) => {
+    setShow(!show);
+    setDetails([currElem])
+  };
 
   if (show)
     return (
       <>
-        <ProductDetailModal details={details} closeProductDetails={closeProductDetails}/>
+        <ProductDetailModal
+          details={details}
+          closeProductDetails={closeProductDetails}
+        />
         <button
           className="z-50 absolute top-16 right-14 text-lg"
           onClick={() => closeProductDetails()}
@@ -31,25 +36,28 @@ const GridView = ({ products }) => {
   return (
     <>
       <section
-        className="w-[64dvw] lg:w-[75dvw] xl:w-[79dvw] grid md:grid-cols-1 lg:grid-cols-2
-      xl:grid-cols-3 mt-2 xl:ml-[3rem] gap-4 bg-white"
+        className="w-[64dvw] lg:w-[75dvw] xl:w-[79dvw] grid lg:grid-cols-2
+      xl:grid-cols-3 mt-3 xl:mt-5 xl:ml-[3rem] gap-4 xl:gap-x-5 xl:gap-y-6 bg-white"
       >
         {products.map((currElem) => {
           return (
             <article
               key={currElem.id}
-              className="bg-pink-500 p-2 h-[25dvh] flex flex-col
+              className="border shadow-sm hover:shadow-md rounded-md px-3 py-4 h-fit flex flex-col
               justify-between"
             >
-              <Product key={currElem.id} {...currElem} />
-              <button
-                onClick={() => {
-                  setDetails([currElem]);
-                  openProductDetails();
-                }}
-              >
-                View Detail
-              </button>
+              <Product key={currElem.id} {...currElem}/>
+              <span className="flex justify-center">
+                <button
+                  className="bg-orange-300 py-1 rounded-md hover:scale-105 w-4/5"
+                  onClick={() => {
+                    // setDetails([currElem]);
+                    openProductDetails(currElem);
+                  }}
+                >
+                  View Detail
+                </button>
+              </span>
             </article>
           );
         })}
