@@ -7,6 +7,7 @@ import ProductPage from "./pages/ProductPage";
 import Cart from "./pages/Cart";
 import ErrorPage from "./pages/ErrorPage";
 import Footer from "./components/Footer";
+import WishList from "./pages/WishList";
 const App = () => {
   return (
     <Router>
@@ -14,6 +15,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/products" element={<ProductPage />} />
+        <Route path="/wishList" element={<WishList />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="*" element={<ErrorPage />} />
       </Routes>
