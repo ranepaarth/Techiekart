@@ -1,17 +1,16 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { useCartContext } from "../context/cartContext";
-// import CartAmountToggle from "./CartAmountToggle";
+import { useWishlistContext } from "../context/wishListContext";
 
 const ProductDetailModal = ({ details,closeProductDetails}) => {
   const { addToCart } = useCartContext();
   const [amount, setAmount] = useState(1);
 
-
+  const {removeFromWishList} = useWishlistContext();
 
   let product;
 
-  // console.log(details);
   if (details.length === 0) return;
   else
     return (
@@ -20,20 +19,20 @@ const ProductDetailModal = ({ details,closeProductDetails}) => {
           <span className="hover:underline bg-white w-fit mt-6 p-2">
             {details.map((value) => {
               product = value;
-              return value.title;
+              return value.title||value.name;
             })}
           </span>
           <footer className="p-3 flex flex-col gap-3">
             <span
               className="bg-pink-300 py-2 rounded-lg shadow-md text-center cursor-pointer"
-              onClick={() => {addToCart(product, amount);closeProductDetails()}}
+              onClick={() => {addToCart(product, amount);removeFromWishList(product.id);closeProductDetails()}}
             >
               <button>Add to Cart</button>
             </span>
             <NavLink
               to="/cart"
               className="bg-pink-500 py-2 rounded-lg shadow-md text-center"
-              onClick={() => addToCart(product, amount)}
+              onClick={() => {addToCart(product, amount);removeFromWishList(product.id)}}
             >
               <button>Buy Now</button>
             </NavLink>
@@ -44,4 +43,3 @@ const ProductDetailModal = ({ details,closeProductDetails}) => {
 };
 
 export default ProductDetailModal;
-/*onClick={() =>addToCart(details)} */

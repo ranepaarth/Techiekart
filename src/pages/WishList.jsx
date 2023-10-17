@@ -3,13 +3,31 @@ import { useCartContext } from "../context/cartContext";
 import { useWishlistContext } from "../context/wishListContext";
 import { NavLink } from "react-router-dom";
 
+import {AiOutlineClose} from 'react-icons/ai'
 import { IoAddOutline } from "react-icons/io5";
+import { useProductContext } from "../context/ProductContext";
+import ProductDetailModal from "../components/ProductDetailModal";
 
 const WishList = () => {
   const { wishListCart, removeFromWishList } = useWishlistContext();
-  console.log(wishListCart);
   const { addToCart } = useCartContext();
-  // const [amount, setAmount] = useState(1);
+  const {getProductDetails,productDetails,openProductModal,closeProductModal,show} = useProductContext()
+
+  if (show)
+  return (
+    <>
+      <ProductDetailModal
+        details={[productDetails]}
+        closeProductDetails={closeProductModal}
+      />
+      <button
+        className="z-50 absolute top-16 right-14 text-lg"
+        onClick={() => closeProductModal()}
+      >
+        <AiOutlineClose />
+      </button>
+    </>
+  );
 
   if (wishListCart.length === 0) {
     return (
@@ -35,7 +53,7 @@ const WishList = () => {
                   className="bg-white border p-3 shadow-sm rounded-sm"
                   key={index}
                 >
-                  <figure>
+                  <figure onClick={()=>{getProductDetails(item);openProductModal()}}>
                     {/* {console.log(item)} */}
                     <img
                       src={item.image}

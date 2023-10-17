@@ -13,6 +13,8 @@ const AppContext = createContext();
 const initialState = {
   isLoading:false,
   products: [],
+  productDetails:"",
+  show:false
 };
 
 const API = "https://dummyjson.com/products?limit=20";
@@ -33,12 +35,24 @@ const AppProvider = ({ children }) => {
     }
   };
 
+  const getProductDetails = (product) => {
+    dispatch({type:"GET_PRODUCT_DETAILS",payload:product})
+  }
+
+  const openProductModal = ()=> {
+    dispatch({type:"OPEN_PRODUCT_MODAL"})
+  }
+  
+  const closeProductModal = ()=> {
+    dispatch({type:"CLOSE_PRODUCT_MODAL"})
+  }
+
   useEffect(() => {
     getProducts(API);
   }, []);
 
   return (
-    <AppContext.Provider value={{ ...state }}>{children}</AppContext.Provider>
+    <AppContext.Provider value={{ ...state,getProductDetails,openProductModal,closeProductModal}}>{children}</AppContext.Provider>
   );
 };
 

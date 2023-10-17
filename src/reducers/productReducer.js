@@ -3,14 +3,35 @@ const productReducer = (state, action) => {
     case "SET_API_DATA":
       return {
         products: action.payload,
-        isLoading:false,
+        isLoading: false,
       };
 
-      case "SET_LOADING":
-        return {
-          ...state,
-          isLoading:true,
-        }
+    case "SET_LOADING":
+      return {
+        ...state,
+        isLoading: true,
+      };
+
+    case "GET_PRODUCT_DETAILS":
+      // const productDetail = action.payload
+      // console.log(productDetail)
+
+      return {
+        ...state,
+        productDetails: action.payload,
+      };
+
+    case "OPEN_PRODUCT_MODAL":
+      return {
+        ...state,
+        show: true,
+      };
+
+    case "CLOSE_PRODUCT_MODAL":
+      return {
+        ...state,
+        show: false,
+      };
 
     default:
       return state;

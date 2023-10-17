@@ -1,33 +1,25 @@
-import React, { useState } from "react";
+import React from "react";
 import Product from "./Product";
 import ProductDetailModal from "./ProductDetailModal";
 
 import { AiOutlineClose } from "react-icons/ai";
+import { useProductContext } from "../context/ProductContext";
 
 const GridView = ({ products }) => {
-  const [details, setDetails] = useState([]);
-  const [show, setShow] = useState(false);
+  // const [show, setShow] = useState(false);
 
-
-  const closeProductDetails = () => {
-    setShow(!show);
-  };
-
-  const openProductDetails = (currElem) => {
-    setShow(!show);
-    setDetails([currElem])
-  };
+  const {getProductDetails,productDetails,openProductModal,closeProductModal,show} = useProductContext()
 
   if (show)
     return (
       <>
         <ProductDetailModal
-          details={details}
-          closeProductDetails={closeProductDetails}
+          details={[productDetails]}
+          closeProductDetails={closeProductModal}
         />
         <button
           className="z-50 absolute top-16 right-14 text-lg"
-          onClick={() => closeProductDetails()}
+          onClick={() => closeProductModal()}
         >
           <AiOutlineClose />
         </button>
@@ -51,8 +43,8 @@ const GridView = ({ products }) => {
                 <button
                   className="bg-orange-300 py-1 rounded-md hover:scale-105 w-4/5"
                   onClick={() => {
-                    // setDetails([currElem]);
-                    openProductDetails(currElem);
+                    openProductModal();
+                    getProductDetails(currElem)
                   }}
                 >
                   View Detail
