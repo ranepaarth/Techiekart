@@ -36,7 +36,7 @@ const cartReducer = (state, action) => {
           price: product.price,
           desc: product.description,
           stock: product.stock,
-          brand:product.brand,
+          brand: product.brand,
         };
         // console.log(cartProduct);
         return {
@@ -58,6 +58,48 @@ const cartReducer = (state, action) => {
       return {
         ...state,
         cart: [],
+      };
+
+    case "INCREMENT_AMOUNT":
+      let increasedProduct = state.cart.map((product) => {
+        if (product.id === action.payload) {
+          let newAmount = product.amount + 1;
+          
+          if(newAmount > product.stock) newAmount = product.stock
+          return {
+            ...product,
+            amount: newAmount,
+          };
+        } else {
+          return product;
+        }
+      });
+      return {
+        ...state,
+        cart: increasedProduct,
+      };
+
+    case "DECREMENT_AMOUNT":
+      let decreasedProduct = state.cart.map((product) => {
+        if(product.id === action.payload){
+          let newAmount=product.amount - 1;
+
+
+          if(newAmount <=1) newAmount = 1;
+
+          return {
+            ...product,
+            amount: newAmount
+          }
+        }
+
+        else {
+          return product
+        }
+      });
+      return {
+        ...state,
+        cart:decreasedProduct
       };
 
     default:

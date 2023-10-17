@@ -3,9 +3,6 @@ import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
 const CartAmountToggle = ({ newAmount,incrementAmount,decrementAmount}) => {
   // console.log(newAmount);
 
-  // localStorage.setItem("amount",newAmount);
-  // const localAmount = localStorage.getItem("amount");
-
   return (
     <div className="flex justify-end gap-1 cursor-pointer font-medium">
       <span

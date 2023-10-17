@@ -1,25 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import CartAmountToggle from "./CartAmountToggle";
 import { AiOutlineDelete } from "react-icons/ai";
 import { useCartContext } from "../context/cartContext";
 
 const CartItem = ({ ...product }) => {
   let { id, name, image, price, amount, stock, brand } = product;
-  const { removeProduct } = useCartContext();
-  // console.log(product);
-
-  let [newAmount, setNewAmount] = useState(amount);
-  // console.log(newAmount);
-
-  const incrementAmount = () => {
-    if (newAmount < stock) setNewAmount(newAmount + 1);
-    else setNewAmount(stock);
-  };
-
-  const decrementAmount = () => {
-    if (newAmount > 1) setNewAmount(newAmount - 1);
-    else newAmount = 1;
-  };
+  const { removeProduct,incrementAmount,decrementAmount } = useCartContext();
 
   return (
     <>
@@ -34,8 +20,10 @@ const CartItem = ({ ...product }) => {
             </h3>
           </header>
           <p className="text-xl font-semibold text-orange-400">₹{price}</p>
-          <small className="[font-weight:400] text-neutral-400 text-xs capitalize">stocks available: {stock}</small>
-          <footer className="flex items-center justify-between">
+          <small className="[font-weight:400] text-neutral-400 text-xs capitalize">
+            stocks available: {stock}
+          </small>
+          <footer className="flex items-center justify-between select-none">
             <button
               className="bg-red-400 p-1 text-white rounded-full"
               onClick={() => removeProduct(id)}
@@ -45,14 +33,13 @@ const CartItem = ({ ...product }) => {
               </span>
             </button>
             <CartAmountToggle
-              newAmount={newAmount}
-              incrementAmount={incrementAmount}
-              decrementAmount={decrementAmount}
+              newAmount={amount}
+              incrementAmount={() => incrementAmount(id)}
+              decrementAmount={()=>decrementAmount(id)}
             />
           </footer>
         </aside>
       </article>
-      
     </>
   );
 };
