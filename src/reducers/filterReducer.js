@@ -70,9 +70,9 @@ const filterReducer = (state, action) => {
       const { category, products } = action.payload;
       let temp_products = [...products];
       let category_products;
-      category === "all"
-        ? (category_products = temp_products)
-        : (category_products = temp_products.filter(
+      category_products = category === "all"
+        ?  temp_products
+        : (temp_products.filter(
             (product) => product.category === category
           ));
       // console.log(category_products)
