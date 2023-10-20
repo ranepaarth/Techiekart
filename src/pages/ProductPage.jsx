@@ -20,7 +20,7 @@ const ProductPage = () => {
         <div className="flex gap-4 pr-2 h-[100] pt-[6.05rem] lg:pt-[6.7rem] md:px-2">
           <div className="">
             <aside
-              className={`border-r border-neutral-400 h-full w-[28dvw] md:w-[27dvw] lg:w-[190px] xl:w-[230px] fixed`}
+              className={`border-r border-neutral-300 md:shadow-md h-full w-[28dvw] md:w-[27dvw] lg:w-[190px] xl:w-[230px] fixed`}
               // style={{ maxHeight: "100dvh" }}
             >
               <FilterSection />
