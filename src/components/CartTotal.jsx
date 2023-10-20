@@ -22,8 +22,8 @@ const CartTotal = () => {
   }
 
   return (
-    <section className="flex justify-center my-5 w-[100vw] font-sans">
-      <article className="bg-neutral-50 p-5 border shadow-sm w-4/5">
+    <section className="flex justify-center my-5 w-screen font-sans">
+      <article className="bg-neutral-50 py-5 px-8 lg:px-12 border shadow-sm w-4/5 lg:w-3/5">
         <button className="text-sm text-center min-w-full bg-orange-400 px-1 py-2 rounded-sm border-orange-800 border-[0.001rem] font-medium hover:scale-105">
           Place Order
         </button>

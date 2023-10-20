@@ -9,7 +9,7 @@ const CartItem = ({ ...product }) => {
 
   return (
     <>
-      <article className="flex justify-center gap-5 mt-5 cursor-default w-screen lg:w-fit px-5 border-b pb-5">
+      <article className="flex justify-center gap-5 mt-5 cursor-default w-screen lg:w-full px-5 border-b pb-5">
         <figure className="flex justify-center items-start h-fit w-fit shadow-md border-2 p-1 bg-neutral-100">
           <img src={image} alt="" className="h-28 w-40" />
         </figure>
@@ -24,7 +24,7 @@ const CartItem = ({ ...product }) => {
             stocks available: {stock}
           </small>
           <small className='font-medium text-neutral-400 text-xs capitalize'>Sub-Total: ₹{price*amount}</small>
-          <footer className="flex items-center gap-16 select-none">
+          <footer className="flex items-center justify-between select-none pr-6 lg:pr-0">
             <button
               className="bg-red-400 p-1 text-white rounded-full hover:scale-110"
               onClick={() => removeProduct(id)}

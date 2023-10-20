@@ -10,7 +10,11 @@ const Cart = () => {
   // console.log(cart);
   if (cart.length === 0) {
     return (
-      <EmptyCartOrList header="shopping cart" pageName="cart" heroIcon="FaPlus" />
+      <EmptyCartOrList
+        header="shopping cart"
+        pageName="cart"
+        heroIcon="FaPlus"
+      />
     );
   } else
     return (
@@ -42,7 +46,7 @@ const Cart = () => {
         </div>
         <main className="mt-5 min-w-full lg:px-16 xl:px-40">
           {
-            <section className="grid grid-cols-1 justify-center items-center lg:flex lg:justify-between gap-5">
+            <section className="grid grid-cols-1 justify-center items-center lg:grid-cols-2 gap-5 lg:gap-x-16 xl:gap-x-24">
               {cart.map((product, index) => {
                 return (
                   <div key={index}>
@@ -54,7 +58,6 @@ const Cart = () => {
             </section>
           }
         </main>
-
         <footer>
           <CartTotal />
         </footer>
