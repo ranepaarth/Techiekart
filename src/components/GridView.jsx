@@ -6,15 +6,15 @@ import { AiOutlineClose } from "react-icons/ai";
 import { useProductContext } from "../context/ProductContext";
 
 const GridView = ({ products }) => {
-  // const [show, setShow] = useState(false);
+  const {productDetails,closeProductModal,show} = useProductContext()
 
-  const {getProductDetails,productDetails,openProductModal,closeProductModal,show} = useProductContext()
+  // console.log(productDetails)
 
   if (show)
     return (
       <>
         <ProductDetailModal
-          details={[productDetails]}
+          details={productDetails}
           closeProductDetails={closeProductModal}
         />
         <button
@@ -39,17 +39,6 @@ const GridView = ({ products }) => {
               justify-between"
             >
               <Product key={currElem.id} {...currElem}/>
-              <span className="flex justify-center">
-                <button
-                  className="bg-orange-300 py-1 rounded-md hover:scale-105 w-4/5"
-                  onClick={() => {
-                    openProductModal();
-                    getProductDetails(currElem)
-                  }}
-                >
-                  View Detail
-                </button>
-              </span>
             </article>
           );
         })}
