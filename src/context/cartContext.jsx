@@ -14,7 +14,8 @@ const initialState = {
   cart: getLocalStorageCartData(),
   total_items: "",
   total_amount: "",
-  shipping_charges: 5000,
+  shipping_charges: 450,
+  tax:18.29,
 };
 
 const CartContextProvider = ({ children }) => {
@@ -33,7 +34,7 @@ const CartContextProvider = ({ children }) => {
     dispatch({ type: "EMPTY_CART" });
   };
 
-  /*Increment and decrement amount*/
+  /* Increment and decrement amount */
   const incrementAmount = (id) => {
     dispatch({ type: "INCREMENT_AMOUNT", payload: id });
   };
@@ -42,10 +43,17 @@ const CartContextProvider = ({ children }) => {
     dispatch({ type: "DECREMENT_AMOUNT", payload: id });
   };
 
-  /*Local Storage */
+  /* Update the subTotal */
+
+
+
+  /* Local Storage */
   useEffect(() => {
+    dispatch({type:"UPDATE_SUB_TOTAL"})
     localStorage.setItem("productCart", JSON.stringify(state.cart));
   }, [state.cart]);
+
+
 
   return (
     <CartContext.Provider
