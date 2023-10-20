@@ -32,6 +32,12 @@ const wishlistReducer = (state, action) => {
         wishListCart: updatedCart,
       };
 
+      case "CLEAR_WISHLIST":
+        return {
+          ...state,
+          wishListCart:[]
+        }
+
     default:
       return {
         ...state,

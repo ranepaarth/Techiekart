@@ -26,12 +26,16 @@ export const WishlistContextProvider = ({ children }) => {
     return dispatch({type:"REMOVE_FROM_WISHLIST", payload:id})
   }
 
+  const clearWishlist = () => {
+    return dispatch({type:"CLEAR_WISHLIST"})
+  }
+
   useEffect(()=>{
     localStorage.setItem("WishListCart",JSON.stringify(state.wishListCart))
   },[state.wishListCart])
 
   return (
-    <wishlistContext.Provider value={{ ...state, addToWishList,removeFromWishList }}>
+    <wishlistContext.Provider value={{ ...state, addToWishList,removeFromWishList,clearWishlist }}>
       {children}
     </wishlistContext.Provider>
   );

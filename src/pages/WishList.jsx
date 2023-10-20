@@ -15,7 +15,7 @@ import { IoAddOutline } from "react-icons/io5";
 import { AiOutlineClose } from "react-icons/ai";
 
 const WishList = () => {
-  const { wishListCart } = useWishlistContext();
+  const { wishListCart, clearWishlist } = useWishlistContext();
   const { productDetails, closeProductModal, show } = useProductContext();
 
   if (show)
@@ -45,9 +45,22 @@ const WishList = () => {
   } else
     return (
       <>
-        <header className="pt-[7rem] text-center text-xl font-medium">
+        <header className="pt-[8rem] text-center text-xl font-medium">
           <span className="border-b-4 pb-3 border-purple-400">My WishList</span>
         </header>
+        <div className="flex justify-center gap-10 md:gap-20 mt-10">
+          <NavLink to='/products'>
+            <button className="capitalize px-3 py-1 bg-blue-400 rounded-md hover:scale-110 text-white">
+              add product
+            </button>
+          </NavLink>
+          <button
+            className="capitalize bg-red-500 px-3 py-1 rounded-md text-white font-medium hover:scale-110"
+            onClick={() => clearWishlist()}
+          >
+            clear wishList
+          </button>
+        </div>
         <section className="flex justify-center">
           <main
             className={`border shadow-md rounded-md w-fit mx-6 my-10 md:mx-4 p-4 grid ${
@@ -65,9 +78,9 @@ const WishList = () => {
               );
             })}
             <NavLink to="/products">
-              <article className="w-50 h-44 md:h-48 bg-white border rounded-sm shadow-sm flex flex-col justify-center items-center cursor-pointer select-none">
-                <IoAddOutline className="mt-4 text-5xl border-2 border-purple-600 rounded-full p-2 text-purple-400 border-dashed hover:scale-110" />
-                <button className="px-3 py-1 mt-5 border text-white bg-purple-600 rounded-full border-purple-600 font-semibold hover:scale-105">
+              <article className="w-56 h-48 flex flex-col justify-center items-center cursor-pointer select-none hover:scale-110">
+                <IoAddOutline className="mt-4 text-5xl border-2 border-purple-600 rounded-full p-2 text-purple-400 border-dashed " />
+                <button className="px-3 py-1 mt-5 border text-white bg-purple-600 rounded-full border-purple-600 font-semibold ">
                   Add Item
                 </button>
               </article>

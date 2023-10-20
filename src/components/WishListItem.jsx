@@ -46,10 +46,10 @@ const WishListItem = ({ item }) => {
           <img
             src={item.image}
             alt=""
-            className=" w-52 h-28 cursor-pointer lg:h-32"
+            className=" w-44 md:w-48 h-28 cursor-pointer lg:h-32"
           />
         </figure>
-        <footer className="flex justify-between items-center gap-2 mt-1 py-1">
+        <footer className="flex justify-between items-center gap-2  pt-2">
           <button
             className="text-center w-[90%] bg-orange-400  p-1 hover:scale-105"
             onClick={() => {
