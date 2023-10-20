@@ -6,7 +6,7 @@ const CartAmountToggle = ({ newAmount,incrementAmount,decrementAmount}) => {
   return (
     <div className="flex justify-end gap-1 cursor-pointer font-medium">
       <span
-        className="bg-orange-300 rounded-full flex items-center justify-center p-2"
+        className="bg-orange-300 rounded-full flex items-center justify-center p-2 hover:scale-110"
         onClick={decrementAmount}
       >
         <AiOutlineMinus />
@@ -14,7 +14,7 @@ const CartAmountToggle = ({ newAmount,incrementAmount,decrementAmount}) => {
       <span className="text-xl flex items-center justify-center px-2 w-7 select-none">{newAmount}
       </span>
       <span
-        className="bg-orange-300 rounded-full flex items-center justify-center p-2"
+        className="bg-orange-300 rounded-full flex items-center justify-center p-2 hover:scale-110"
         onClick={incrementAmount}
       >
         <AiOutlinePlus />
