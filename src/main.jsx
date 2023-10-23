@@ -9,11 +9,12 @@ import { AppProvider } from "./context/ProductContext.jsx";
 import { WishlistContextProvider } from "./context/wishListContext.jsx";
 import "./index.css";
 
+
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <Auth0Provider
-      domain="dev-uva2abrx125bdlr4.us.auth0.com"
-      clientId="FGw9TTfbvdu45W6ArUfuVkNk1xwkvCxN"
+      domain="dev-j0dp714gh2ut3n8r.us.auth0.com"
+      clientId="AqIVXLgIHimgERxqoEpv9U2iWnBBw5dp"
       authorizationParams={{
         redirect_uri: window.location.origin,
       }}

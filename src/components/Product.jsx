@@ -12,6 +12,10 @@ import { useWishlistContext } from "../context/wishListContext";
 import { useCartContext } from "../context/cartContext";
 import { useProductContext } from "../context/ProductContext";
 
+import Fade from "@mui/material/Fade";
+
+import Tooltip from "@mui/material/Tooltip";
+
 const Product = (currElem) => {
   const { cart,addToCart } = useCartContext();
   const { addToWishList, removeFromWishList, wishListCart } = useWishlistContext();
@@ -71,6 +75,12 @@ const Product = (currElem) => {
         </span>
         <span className={`items-end text-black text-lg  pt-6 cursor-pointer`}>
           {checkIfExists().idArray.includes(currElem.id) ? (
+            <Tooltip
+            title="Remove from Wishlist"
+            placement="bottom"
+            TransitionComponent={Fade}
+            TransitionProps={{ timeout: 600 }}
+          >
             <span
               onClick={() => {
                 removeFromWishListFunction(currElem.id);
@@ -80,7 +90,14 @@ const Product = (currElem) => {
                 <FaHeart />
               </span>
             </span>
+            </Tooltip>
           ) : (
+            <Tooltip
+            title="Add to Wishlist"
+            placement="bottom"
+            TransitionComponent={Fade}
+            TransitionProps={{ timeout: 600 }}
+          >
             <span
               onClick={() => {
                 addToWishListFunction(currElem);
@@ -90,6 +107,7 @@ const Product = (currElem) => {
                 <FiHeart />
               </span>
             </span>
+            </Tooltip>
           )}
         </span>
       </header>
