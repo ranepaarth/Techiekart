@@ -7,6 +7,7 @@ import { useCartContext } from "../context/cartContext";
 import { useWishlistContext } from "../context/wishListContext";
 
 import { AiFillDelete, AiOutlineClose } from "react-icons/ai";
+import { Fade, Tooltip } from "@mui/material";
 
 const WishListItem = ({ item }) => {
   const { removeFromWishList } = useWishlistContext();
@@ -45,8 +46,8 @@ const WishListItem = ({ item }) => {
         >
           <img
             src={item.image}
-            alt=""
-            className=" w-44 md:w-48 h-28 cursor-pointer lg:h-32"
+            alt={item.name}
+            className=" w-48 h-28 cursor-pointer lg:h-32"
           />
         </figure>
         <footer className="flex justify-between items-center gap-2  pt-2">
@@ -59,14 +60,21 @@ const WishListItem = ({ item }) => {
           >
             Add to Cart
           </button>
-          <button
-            className="flex items-center text-red-600 hover:scale-125"
-            onClick={() => {
-              removeFromWishList(item.id);
-            }}
+          <Tooltip
+            title="Remove"
+            placement="bottom"
+            TransitionComponent={Fade}
+            TransitionProps={{ timeout: 600 }}
           >
-            <AiFillDelete className="text-2xl" />
-          </button>
+            <button
+              className="flex items-center text-red-600 hover:scale-125"
+              onClick={() => {
+                removeFromWishList(item.id);
+              }}
+            >
+              <AiFillDelete className="text-2xl" />
+            </button>
+          </Tooltip>
         </footer>
       </>
     );

@@ -15,7 +15,7 @@ const SubHeader = () => {
             <span className="text-base md:text-xl">
               <GoHome />
             </span>
-            <p className="">Home</p>
+            <span className="">Home</span>
           </span>
           <span className="absolute -bottom-3 left-0 w-0 h-[0.2rem] bg-purple-500 transition-all group-hover:w-full"></span>
         </span>
@@ -26,7 +26,7 @@ const SubHeader = () => {
             <span className="text-base md:text-xl">
               <BsBagPlus />
             </span>
-            <p className="">Products</p>
+            <span className="">Products</span>
           </span>
           <span className="absolute -bottom-3 left-0 w-0 h-[0.2rem] bg-purple-500 transition-all group-hover:w-full"></span>
         </span>
@@ -36,7 +36,7 @@ const SubHeader = () => {
           <span className="text-base md:text-xl">
             <AiOutlineInfoCircle />
           </span>
-          <p className="">About</p>
+          <span className="">About</span>
         </span>
         <span className="absolute -bottom-3 left-0 w-0 h-[0.2rem] bg-purple-500 transition-all group-hover:w-full"></span>
       </p>
@@ -45,7 +45,7 @@ const SubHeader = () => {
           <span className="text-base md:text-xl">
             <AiOutlineMail />
           </span>
-          <p className="">Contact Us</p>
+          <span className="">Contact Us</span>
         </span>
         <span className="absolute -bottom-3 left-0 w-0 h-[0.2rem] bg-purple-500 transition-all group-hover:w-full"></span>
       </p>

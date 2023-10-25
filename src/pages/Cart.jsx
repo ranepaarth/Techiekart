@@ -18,8 +18,8 @@ const Cart = () => {
     );
   } else
     return (
-      <div className="flex flex-col items-center overflow-hidden">
-        <header className="pt-28 tracking-wide font-medium w-fit border-b-2 pb-5 text-center flex items-center gap-2">
+      <div className="flex flex-col items-center overflow-hidden pt-32">
+        <header className="tracking-wide font-medium w-fit border-b-2 pb-5 text-center flex items-center gap-2">
           <span>Cart Subtotal ({cart.length} items):</span>
           <span className="text-orange-600 font-semibold text-2xl">
             ₹{total_price}
@@ -46,7 +46,7 @@ const Cart = () => {
         </div>
         <main className="mt-5 min-w-full lg:px-16 xl:px-40">
           {
-            <section className="grid grid-cols-1 justify-center items-center lg:grid-cols-2 gap-5 lg:gap-x-16 xl:gap-x-24">
+            <section className= {`grid grid-cols-1 justify-center items-center lg:${cart.length === 1? "grid-cols-1":"grid-cols-2"} gap-5 lg:gap-x-16 xl:gap-x-24`}>
               {cart.map((product, index) => {
                 return (
                   <div key={index}>
