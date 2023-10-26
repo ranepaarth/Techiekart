@@ -4,7 +4,7 @@ import ProductDetailModal from "./ProductDetailModal";
 //Icons
 
 //Contexts
-import { useProductContext } from "../context/ProductContext";
+import { useProductContext } from "../../context/ProductContext";
 
 import DetailsIcon from "./DetailsIcon";
 import HeartIcon from "./HeartIcon";
@@ -51,8 +51,7 @@ const Product = (currElem) => {
       </main>
 
       <footer>
-        <div className="flex justify-end text-xl mb-1">
-        </div>
+        <div className="flex justify-end text-xl mb-1"></div>
         <ProductFooter currElem={currElem} />
       </footer>
     </div>

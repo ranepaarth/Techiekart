@@ -1,6 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import EmptyCartIcon from "./EmptyCartIcon";
+import EmptyCartIcon from "./CartComponent/EmptyCartIcon";
 
 const EmptyCart = ({header,pageName,heroIcon}) => {
   return (
@@ -17,8 +17,7 @@ const EmptyCart = ({header,pageName,heroIcon}) => {
           </h1>
           <div className="font-medium text-neutral-500">
             {pageName === 'wishlist' ? "":(<p className="text-center text-xs px-2 py-1">
-              Before proceed to checkout you must add some products to your
-              shopping cart
+              Before proceed to checkout you must add some products to your cart
             </p>)}
             <p className="text-center text-xs">
               You will find a lot of interesting products on our "Products" page

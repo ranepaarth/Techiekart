@@ -5,9 +5,9 @@ import { IoBagAddOutline } from "react-icons/io5";
 import { AiOutlineDelete } from "react-icons/ai";
 
 //Context
-import { useCartContext } from "../context/cartContext";
-import { useWishlistContext } from "../context/wishListContext";
-import { useProductContext } from "../context/ProductContext";
+import { useCartContext } from "../../context/cartContext";
+import { useWishlistContext } from "../../context/wishListContext";
+import { useProductContext } from "../../context/ProductContext";
 
 const ProductDetailModal = ({ details, closeProductDetails }) => {
   const { cart } = useCartContext();

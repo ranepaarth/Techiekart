@@ -1,9 +1,8 @@
 import React from "react";
-import { useProductContext } from "../context/ProductContext";
-import { useFilterContext } from "../context/filterContext";
+import { useProductContext } from "../../../context/ProductContext";
+import { useFilterContext } from "../../../context/filterContext";
 
-import { useCartContext } from "../context/cartContext";
-
+import { useCartContext } from "../../../context/cartContext";
 
 const Categories = () => {
   const { cart } = useCartContext();
@@ -19,7 +18,7 @@ const Categories = () => {
         <header className="border-b-2 border-purple-600 pb-2 text-sm md:text-base w-fit font-medium">
           <h3>Filter Categories</h3>
         </header>
-
+      {/* {console.log(cart)} */}
         {newCategory.map((category, index) => {
           let total = 0;
           const productExists = cart.find((product) => {

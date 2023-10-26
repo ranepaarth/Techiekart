@@ -1,12 +1,12 @@
 import { Fade, Tooltip } from "@mui/material";
 import React from "react";
 import { AiFillDelete } from "react-icons/ai";
-import { useCartContext } from "../context/cartContext";
+import { useCartContext } from "../../context/cartContext";
 
 const ProductDeleteIcon = ({ currElemId }) => {
-  const { cart,removeProduct } = useCartContext();
+  const { cart, removeProduct } = useCartContext();
 
-const productExists = cart.find((product) => {
+  const productExists = cart.find((product) => {
     if (product.id === currElemId) return true;
   });
 

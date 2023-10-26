@@ -1,9 +1,9 @@
 import React from "react";
-import CartItem from "../components/CartItem";
+import CartItem from "../components/CartComponent/CartItem";
 import EmptyCartOrList from "../components/EmptyCartOrList";
 import { useCartContext } from "../context/cartContext";
 import { NavLink } from "react-router-dom";
-import CartTotal from "../components/CartTotal";
+import CartTotal from "../components/CartComponent/CartTotal";
 
 const Cart = () => {
   const { cart, emptyCart, total_price } = useCartContext();

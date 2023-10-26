@@ -1,10 +1,10 @@
 import React from "react";
 
-import ProductDetailModal from "../components/ProductDetailModal";
+import ProductDetailModal from '../ProductCard/ProductDetailModal';
 
-import { useProductContext } from "../context/ProductContext";
-import { useCartContext } from "../context/cartContext";
-import { useWishlistContext } from "../context/wishListContext";
+import { useProductContext } from "../../context/ProductContext";
+import { useCartContext } from "../../context/cartContext";
+import { useWishlistContext } from "../../context/wishListContext";
 
 import { AiFillDelete, AiOutlineClose } from "react-icons/ai";
 import { Fade, Tooltip } from "@mui/material";

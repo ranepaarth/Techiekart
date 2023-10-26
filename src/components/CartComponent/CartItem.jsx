@@ -1,7 +1,7 @@
 import React from "react";
 import CartAmountToggle from "./CartAmountToggle";
 import { AiOutlineDelete } from "react-icons/ai";
-import { useCartContext } from "../context/cartContext";
+import { useCartContext } from "../../context/cartContext";
 
 const CartItem = ({ ...product }) => {
   let { id, name, image, price, amount, stock, brand } = product;

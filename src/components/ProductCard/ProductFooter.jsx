@@ -1,7 +1,7 @@
 import React from "react";
 import { IoBagAddOutline, IoBagCheckOutline } from "react-icons/io5";
-import { useProductContext } from "../context/ProductContext";
-import { useCartContext } from "../context/cartContext";
+import { useProductContext } from "../../context/ProductContext";
+import { useCartContext } from "../../context/cartContext";
 
 const ProductFooter = ({ currElem }) => {
   const { openProductModal, getProductDetails } = useProductContext();

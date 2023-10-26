@@ -1,8 +1,8 @@
 import Fade from "@mui/material/Fade";
 import Tooltip from "@mui/material/Tooltip";
 import React from "react";
-import { useProductContext } from "../context/ProductContext";
 import { BiDetail } from "react-icons/bi";
+import { useProductContext } from "../../context/ProductContext";
 
 const DetailsIcon = ({ currElem }) => {
   const { openProductModal, getProductDetails } = useProductContext();

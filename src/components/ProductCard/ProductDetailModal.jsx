@@ -5,8 +5,8 @@ import { AiOutlineClose, AiOutlineDelete } from "react-icons/ai";
 import { IoBagAddOutline } from "react-icons/io5";
 
 //Context
-import { useCartContext } from "../context/cartContext";
-import { useProductContext } from "../context/ProductContext";
+import { useCartContext } from "../../context/cartContext";
+import { useProductContext } from "../../context/ProductContext";
 
 const ProductDetailModal = ({ details }) => {
   const { cart, addToCart, removeProduct } = useCartContext();
@@ -52,7 +52,7 @@ const ProductDetailModal = ({ details }) => {
                   className="flex justify-center gap-2 bg-orange-400 py-2 rounded-md hover:scale-105 w-full capitalize"
                   onClick={() => {
                     addToCart(details);
-                    closeProductModal()
+                    closeProductModal();
                   }}
                 >
                   <IoBagAddOutline className="text-xl" />

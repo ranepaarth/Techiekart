@@ -2,9 +2,9 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 
 //Components
-import WishListProductDetailModal from "../components/WishListProductDetailModal";
+import WishListProductDetailModal from "../components/WishListComponent/WishListProductDetailModal";
 import EmptyCartOrList from "../components/EmptyCartOrList";
-import WishListItem from "../components/WishListItem";
+import WishListItem from "../components/WishListComponent/WishListItem";
 
 //Context
 import { useWishlistContext } from "../context/wishListContext";

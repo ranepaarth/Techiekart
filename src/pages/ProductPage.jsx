@@ -1,13 +1,12 @@
 import React from "react";
 
-import FilterSection from "../components/FilterSection";
 import Loading from "../components/Loading";
-import SortSection from "../components/SortSection";
-import GridView from "../components/GridView";
+import GridView from "../components/Main/GridView";
+import SortSection from "../components/Main/SortSection";
+import FilterSection from "../components/SideBar/FilterSection";
 
 import { useFilterContext } from "../context/filterContext";
 import { useProductContext } from "../context/ProductContext";
-
 
 const ProductPage = () => {
   const { isLoading } = useProductContext();
@@ -32,12 +31,7 @@ const ProductPage = () => {
             <header className="p-2 mt-3 border rounded-lg shadow-sm w-[64dvw] lg:w-[75dvw] xl:w-[79dvw] ml-auto xl:ml-[3rem]">
               <SortSection />
             </header>
-            {/* {grid_view ? (
-              <GridView products={filter_products} />
-            ) : (
-              <ListView products={filter_products} />
-            )} */}
-              <GridView products={filter_products} />
+            <GridView products={filter_products} />
           </main>
         </div>
       </>
