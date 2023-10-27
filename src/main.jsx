@@ -10,7 +10,6 @@ import { WishlistContextProvider } from "./context/wishListContext.jsx";
 import "./index.css";
 
 const domainName = import.meta.env.VITE_DOMAIN_NAME;
-
 const clientId = import.meta.env.VITE_CLIENT_ID;
 
 ReactDOM.createRoot(document.getElementById("root")).render(
