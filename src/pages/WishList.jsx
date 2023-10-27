@@ -2,17 +2,17 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 
 //Components
-import WishListProductDetailModal from "../components/WishListComponent/WishListProductDetailModal";
 import EmptyCartOrList from "../components/EmptyCartOrList";
 import WishListItem from "../components/WishListComponent/WishListItem";
+import WishListProductDetailModal from "../components/WishListComponent/WishListProductDetailModal";
 
 //Context
-import { useWishlistContext } from "../context/wishListContext";
 import { useProductContext } from "../context/ProductContext";
+import { useWishlistContext } from "../context/wishlistContext";
 
 //Icons
-import { IoAddOutline } from "react-icons/io5";
 import { AiOutlineClose } from "react-icons/ai";
+import { IoAddOutline } from "react-icons/io5";
 
 const WishList = () => {
   const { wishListCart, clearWishlist } = useWishlistContext();
@@ -49,7 +49,7 @@ const WishList = () => {
           <span className="border-b-4 pb-3 border-purple-400">My WishList</span>
         </header>
         <div className="flex justify-center gap-10 md:gap-20 mt-10">
-          <NavLink to='/products'>
+          <NavLink to="/products">
             <button className="capitalize px-3 py-1 bg-blue-400 rounded-md hover:scale-110 text-white">
               add product
             </button>

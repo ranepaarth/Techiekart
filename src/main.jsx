@@ -6,7 +6,7 @@ import { CartContextProvider } from "./context/cartContext.jsx";
 // import { CartProvider } from "./context/cartContext.jsx";
 import { FIlterContextProvider } from "./context/filterContext.jsx";
 import { AppProvider } from "./context/ProductContext.jsx";
-import { WishlistContextProvider } from "./context/wishListContext.jsx";
+import { WishlistContextProvider } from "./context/wishlistContext.jsx";
 import "./index.css";
 
 const domainName = import.meta.env.VITE_DOMAIN_NAME;

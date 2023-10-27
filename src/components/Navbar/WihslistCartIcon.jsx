@@ -3,7 +3,7 @@ import React from "react";
 import { FaHeart } from "react-icons/fa";
 import { FiHeart } from "react-icons/fi";
 import { NavLink } from "react-router-dom";
-import { useWishlistContext } from "../../context/wishListContext";
+import { useWishlistContext } from "../../context/wishlistContext";
 
 const WihslistCartIcon = () => {
   const { wishListCart } = useWishlistContext();

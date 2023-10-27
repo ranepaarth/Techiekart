@@ -1,13 +1,13 @@
 import React from "react";
 
-import ProductDetailModal from '../ProductCard/ProductDetailModal';
+import ProductDetailModal from "../ProductCard/ProductDetailModal";
 
 import { useProductContext } from "../../context/ProductContext";
 import { useCartContext } from "../../context/cartContext";
-import { useWishlistContext } from "../../context/wishListContext";
+import { useWishlistContext } from "../../context/wishlistContext";
 
-import { AiFillDelete, AiOutlineClose } from "react-icons/ai";
 import { Fade, Tooltip } from "@mui/material";
+import { AiFillDelete, AiOutlineClose } from "react-icons/ai";
 
 const WishListItem = ({ item }) => {
   const { removeFromWishList } = useWishlistContext();
