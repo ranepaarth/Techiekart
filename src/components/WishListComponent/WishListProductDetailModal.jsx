@@ -1,19 +1,19 @@
 import React from "react";
 
 //Icons
-import { IoBagAddOutline } from "react-icons/io5";
 import { AiOutlineDelete } from "react-icons/ai";
+import { IoBagAddOutline } from "react-icons/io5";
 
 //Context
-import { useCartContext } from "../context/cartContext";
-import { useWishlistContext } from "../context/wishListContext";
-import { useProductContext } from "../context/ProductContext";
+import { useProductContext } from "../../context/ProductContext";
+import { useCartContext } from "../../context/cartContext";
+import { useWishlistContext } from "../../context/wishlistContext";
 
 const ProductDetailModal = ({ details, closeProductDetails }) => {
   const { cart } = useCartContext();
   const { addToCart, removeProduct } = useCartContext();
   const { removeFromWishList } = useWishlistContext();
-  const {closeProductModal} = useProductContext();
+  const { closeProductModal } = useProductContext();
 
   const productExists = cart.find((product) => {
     console.log(product.id === details.id);
@@ -36,7 +36,10 @@ const ProductDetailModal = ({ details, closeProductDetails }) => {
             <div className="flex justify-end">
               <button
                 className="bg-red-400 p-1 text-white rounded-md border-[1px] border-red-800 hover:scale-110 w-fit"
-                onClick={() => {removeFromWishList(details.id);closeProductModal()}}
+                onClick={() => {
+                  removeFromWishList(details.id);
+                  closeProductModal();
+                }}
               >
                 <span className="flex items-center gap-2 p-1 capitalize">
                   <AiOutlineDelete className="text-xl" />

@@ -1,5 +1,5 @@
 import React from "react";
-import { useFilterContext } from "../context/filterContext";
+import { useFilterContext } from "../../context/filterContext";
 
 const SortSection = () => {
   const { grid_view, setGridView, setListView, filter_products, sorting } =

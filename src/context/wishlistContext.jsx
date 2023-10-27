@@ -27,6 +27,7 @@ export const WishlistContextProvider = ({ children }) => {
   }
 
   const clearWishlist = () => {
+    console.log("clear wishlist")
     return dispatch({type:"CLEAR_WISHLIST"})
   }
 

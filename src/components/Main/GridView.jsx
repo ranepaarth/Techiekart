@@ -1,12 +1,12 @@
 import React from "react";
-import Product from "./Product";
-import ProductDetailModal from "./ProductDetailModal";
+import Product from "../ProductCard/Product";
+import ProductDetailModal from "../ProductCard/ProductDetailModal";
 
 import { AiOutlineClose } from "react-icons/ai";
-import { useProductContext } from "../context/ProductContext";
+import { useProductContext } from "../../context/ProductContext";
 
 const GridView = ({ products }) => {
-  const {productDetails,closeProductModal,show} = useProductContext()
+  const { productDetails, closeProductModal, show } = useProductContext();
 
   // console.log(productDetails)
 
@@ -38,7 +38,7 @@ const GridView = ({ products }) => {
               className="border shadow-sm hover:shadow-md rounded-md px-3 py-4 h-fit flex flex-col
               justify-between"
             >
-              <Product key={currElem.id} {...currElem}/>
+              <Product key={currElem.id} {...currElem} />
             </article>
           );
         })}

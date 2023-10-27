@@ -1,6 +1,6 @@
 import React from "react";
-import { useFilterContext } from "../context/filterContext";
-import Categories from "./Categories";
+import { useFilterContext } from "../../context/filterContext";
+import Categories from "./Categories/Categories";
 
 const FilterSection = () => {
   const { clearFilter } = useFilterContext();
