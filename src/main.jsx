@@ -9,12 +9,16 @@ import { AppProvider } from "./context/ProductContext.jsx";
 import { WishlistContextProvider } from "./context/wishListContext.jsx";
 import "./index.css";
 
+const domainName = import.meta.env.VITE_DOMAIN_NAME
+
+const clientId = import.meta.env.VITE_CLIENT_ID
+
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <Auth0Provider
-      domain="dev-j0dp714gh2ut3n8r.us.auth0.com"
-      clientId="AqIVXLgIHimgERxqoEpv9U2iWnBBw5dp"
+      domain={domainName}
+      clientId={clientId}
       authorizationParams={{
         redirect_uri: window.location.origin,
       }}
