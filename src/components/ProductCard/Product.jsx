@@ -23,7 +23,7 @@ const Product = (currElem) => {
     );
 
   return (
-    <div className="flex flex-col gap-4 relative select-none p-1">
+    <div className="flex flex-col gap-4 relative select-none p-1 pt-0">
       <span className="text-xs text-gray-400 absolute right-0 capitalize">
         {currElem.category}
       </span>
@@ -41,7 +41,7 @@ const Product = (currElem) => {
           <img
             src={currElem.thumbnail}
             alt={currElem.title}
-            className="h-44 md:h-64 w-full rounded-md"
+            className="h-52 md:h-64 w-full rounded-md object-fill"
           />
         </figure>
         <div className="flex justify-between items-center text-xl">
