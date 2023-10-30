@@ -10,7 +10,7 @@ const EmptyCartIcon = ({ Icon }) => {
     <>
       <NavLink
         to="/products"
-        className="w-7/12 h-1/3 flex justify-center items-center border-2 rounded-md hover:shadow-md hover:scale-110"
+        className="w-[400px] h-1/3 flex justify-center items-center border-2 rounded-md hover:shadow-md hover:scale-110"
       >
         <main className="relative cursor-pointer">
           {Icon === "FaPlus" ? (
