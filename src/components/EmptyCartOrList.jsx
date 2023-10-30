@@ -4,8 +4,8 @@ import EmptyCartIcon from "./CartComponent/EmptyCartIcon";
 
 const EmptyCart = ({header,pageName,heroIcon}) => {
   return (
-    <>
-      <section className="pt-[6.5rem] flex flex-col items-center justify-between h-[100vh]">
+    <div className="flex justify-center pt-[8rem] lg:pt-[11rem]">
+      <section className=" flex flex-col items-center justify-between lg:w-[500px] h-[80vh] lg:h-[73vh] lg:border lg:shadow-md lg:rounded-md">
         <header className="pt-5 text-3xl flex flex-col items-center font-bold">
           <h1 className="capitalize">{header}</h1>
           <span className="border-[3px] w-32 mt-5 border-purple-300"></span>
@@ -30,7 +30,7 @@ const EmptyCart = ({header,pageName,heroIcon}) => {
           </NavLink>
         </footer>
       </section>
-    </>
+    </div>
   );
 };
 
