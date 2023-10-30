@@ -6,6 +6,7 @@ import HorizontalLine from "./HorizontalLine";
 import SubHeader from "./SubHeader";
 
 import logo from '../../assets/ecomLogo.png'
+import HeaderCategories from "./HeaderCategories";
 const Header = () => {
   return (
     <header className="shadow-sm fixed min-w-full bg-white z-10">
@@ -23,8 +24,10 @@ const Header = () => {
           <NavigationIcons />
         </div>
       </div>
-      <HorizontalLine />
+      {/* <HorizontalLine /> */}
       <SubHeader />
+      <HorizontalLine />
+      <HeaderCategories />
       <HorizontalLine />
     </header>
   );
