@@ -4,35 +4,15 @@ import { NavLink } from "react-router-dom";
 //Components
 import EmptyCartOrList from "../components/EmptyCartOrList";
 import WishListItem from "../components/WishListComponent/WishListItem";
-import WishListProductDetailModal from "../components/WishListComponent/WishListProductDetailModal";
 
 //Context
-import { useProductContext } from "../context/ProductContext";
 import { useWishlistContext } from "../context/wishlistContext";
 
 //Icons
-import { AiOutlineClose } from "react-icons/ai";
 import { IoAddOutline } from "react-icons/io5";
 
 const WishList = () => {
   const { wishListCart, clearWishlist } = useWishlistContext();
-  const { productDetails, closeProductModal, show } = useProductContext();
-
-  if (show)
-    return (
-      <>
-        <WishListProductDetailModal
-          details={productDetails}
-          closeProductDetails={closeProductModal}
-        />
-        <button
-          className="z-50 absolute top-16 right-14 text-lg"
-          onClick={() => closeProductModal()}
-        >
-          <AiOutlineClose />
-        </button>
-      </>
-    );
 
   if (wishListCart.length === 0) {
     return (
@@ -45,7 +25,7 @@ const WishList = () => {
   } else
     return (
       <>
-        <header className="pt-[8rem] text-center text-xl font-medium">
+        <header className="pt-[9rem] lg:pt-[11rem] text-center text-xl font-medium">
           <span className="border-b-4 pb-3 border-purple-400">My WishList</span>
         </header>
         <div className="flex justify-center gap-10 md:gap-20 mt-10">
