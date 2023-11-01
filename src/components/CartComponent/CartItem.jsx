@@ -8,7 +8,6 @@ const CartItem = ({ ...product }) => {
   const { removeProduct,incrementAmount,decrementAmount } = useCartContext();
 
   return (
-    <>
       <article className="flex justify-center gap-5 mt-5 cursor-default w-screen lg:w-full px-5 border-b pb-5">
         <figure className="flex justify-center items-start h-fit w-fit shadow-md border-2 p-1 bg-neutral-100">
           <img src={image} alt="" className="h-28 w-40" />
@@ -16,7 +15,7 @@ const CartItem = ({ ...product }) => {
         <aside className="flex flex-col gap-2 w-[60%] min-h-full text-start">
           <header className="font-semibold ">
             <h3 className="text-sm line-clamp-1">
-              {name} <small>{`(${brand})`}</small>{" "}
+              {name} <small>{`(${brand})`}</small>
             </h3>
           </header>
           <p className="text-xl font-semibold text-orange-400">₹{price}</p>
@@ -41,7 +40,6 @@ const CartItem = ({ ...product }) => {
           </footer>
         </aside>
       </article>
-    </>
   );
 };
 
