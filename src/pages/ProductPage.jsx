@@ -13,7 +13,7 @@ const ProductPage = () => {
   const { filter_products } = useFilterContext();
 
   if (isLoading) return <Loading />;
-  else {
+  else
     return (
       <>
         {/* <div className="flex justify-center items-center gap-4 pr-2 h-[100] pt-[6.05rem] lg:pt-[7.5rem] md:px-2 bg-red-100"> */}
@@ -39,7 +39,6 @@ const ProductPage = () => {
         </div>
       </>
     );
-  }
 };
 
 export default ProductPage;
