@@ -19,17 +19,19 @@ const productReducer = (state, action) => {
       return {
         ...state,
         productDetails: action.payload,
+        show:true,
       };
 
-    case "OPEN_PRODUCT_MODAL":
-      return {
-        ...state,
-        show: true,
-      };
+    // case "OPEN_PRODUCT_MODAL":
+    //   return {
+    //     ...state,
+    //     // show: true,
+    //   };
 
     case "CLOSE_PRODUCT_MODAL":
       return {
         ...state,
+        productDetails:"",
         show: false,
       };
 

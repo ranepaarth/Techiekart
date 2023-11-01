@@ -3,6 +3,8 @@ const wishlistReducer = (state, action) => {
     case "ADD_TO_WISHLIST":
       let {product,amount,addedToWishlist} = action.payload;
 
+      console.log(product)
+
       let wishlistProduct;
       wishlistProduct = {
         id: product.id,
@@ -14,6 +16,7 @@ const wishlistReducer = (state, action) => {
         stock: product.stock,
         brand: product.brand,
         addedToWishlist,
+        rating: product.rating,
       };
 
       console.log(wishlistProduct);
