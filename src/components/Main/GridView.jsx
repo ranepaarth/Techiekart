@@ -1,9 +1,11 @@
 import React from "react";
 import Product from "../ProductCard/Product";
-import ProductDetailModal from "../ProductCard/ProductDetailModal";
+import ProductDetailModal from "../ProductCard/ProductDetailModal/ProductDetailModal";
 
-import { AiOutlineClose } from "react-icons/ai";
+import PropTypes from 'prop-types'
+
 import { useProductContext } from "../../context/ProductContext";
+
 
 const GridView = ({ products }) => {
   const { productDetails, closeProductModal, show } = useProductContext();
@@ -12,18 +14,9 @@ const GridView = ({ products }) => {
 
   if (show)
     return (
-      <>
-        <ProductDetailModal
-          details={productDetails}
-          closeProductDetails={closeProductModal}
-        />
-        <button
-          className="z-50 absolute top-16 right-14 text-lg"
-          onClick={() => closeProductModal()}
-        >
-          <AiOutlineClose />
-        </button>
-      </>
+      <ProductDetailModal
+        details={productDetails}
+      />
     );
   return (
     <>
@@ -44,5 +37,9 @@ const GridView = ({ products }) => {
     </>
   );
 };
+
+GridView.propTypes = {
+  products: PropTypes.array.isRequired,
+}
 
 export default GridView;
