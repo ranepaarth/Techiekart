@@ -5,9 +5,9 @@ import { useProductContext } from '../context/ProductContext'
 const ButtonClose = () => {
     const {closeProductModal} = useProductContext()
   return (
-    <div className="flex justify-end p-2">
+    <div className="flex justify-end">
             <button
-              className="HELLO text-lg"
+              className="text-lg p-2 hover:bg-neutral-100 rounded-full border-hidden hover:border"
               onClick={() => closeProductModal()}
             >
               <AiOutlineClose />
