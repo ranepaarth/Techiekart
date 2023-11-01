@@ -40,6 +40,7 @@ const Cart = () => {
           <span
             className="bg-red-400 text-white rounded-md p-2 shadow-md cursor-pointer hover:scale-110"
             onClick={() => emptyCart()}
+            onKeyDown={() => emptyCart()}
           >
             Clear Cart
           </span>
