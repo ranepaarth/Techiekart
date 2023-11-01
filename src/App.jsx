@@ -8,6 +8,7 @@ import Cart from "./pages/Cart";
 import ErrorPage from "./pages/ErrorPage";
 // import Footer from "./components/Footer";
 import WishList from "./pages/WishList";
+import BackToTop from "./components/BackToTop";
 const App = () => {
   return (
     <Router>
@@ -20,6 +21,7 @@ const App = () => {
         <Route path="*" element={<ErrorPage />} />
       </Routes>
       {/* <Footer /> */}
+      <BackToTop />
     </Router>
   );
 };
