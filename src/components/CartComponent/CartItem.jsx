@@ -2,6 +2,7 @@ import React from "react";
 import CartAmountToggle from "./CartAmountToggle";
 import { AiOutlineDelete } from "react-icons/ai";
 import { useCartContext } from "../../context/cartContext";
+import FormatPrice from "../ProductCard/FormatPrice";
 
 const CartItem = ({ ...product }) => {
   let { id, name, image, price, amount, stock, brand } = product;
@@ -18,11 +19,11 @@ const CartItem = ({ ...product }) => {
               {name} <small>{`(${brand})`}</small>
             </h3>
           </header>
-          <p className="text-xl font-semibold text-orange-400">₹{price}</p>
+          <p className="text-xl font-semibold text-orange-400"><FormatPrice price={price}/></p>
           <small className="font-normal text-neutral-400 text-xs capitalize">
             stocks available: {stock}
           </small>
-          <small className='font-medium text-neutral-400 text-xs capitalize'>Sub-Total: ₹{price*amount}</small>
+          <small className='font-medium text-neutral-400 text-xs capitalize'>Sub-Total: <FormatPrice price={price} amount={amount}/></small>
           <footer className="flex items-center justify-between select-none pr-6 lg:pr-0">
             <button
               className="bg-red-400 p-1 text-white rounded-full hover:scale-110"

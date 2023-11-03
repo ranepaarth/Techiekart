@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from 'prop-types';
+import FormatPrice from "../ProductCard/FormatPrice";
 
 const CartTotalSubComp = ({ title, price }) => {
   return (
@@ -7,12 +8,12 @@ const CartTotalSubComp = ({ title, price }) => {
       {title === "order total" ? (
         <>
           <p className="text-2xl text-orange-600 font-bold">{title}: </p>
-          <p className="text-2xl text-orange-600 font-bold">₹{price}</p>
+          <p className="text-2xl text-orange-600 font-bold tracking-wide"><FormatPrice price={price}/></p>
         </>
       ) : (
         <>
           <p>{title}: </p>
-          <p>₹{price}</p>
+          <p className=" tracking-wide"><FormatPrice price={price}/></p>
         </>
       )}
     </span>
