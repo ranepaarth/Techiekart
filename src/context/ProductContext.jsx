@@ -13,7 +13,7 @@ const AppContext = createContext();
 const initialState = {
   isLoading:false,
   products: [],
-  productDetails:"",
+  productDetails:{},
   show:false
 };
 
