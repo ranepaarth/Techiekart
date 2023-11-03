@@ -1,5 +1,6 @@
 import Fade from "@mui/material/Fade";
 import Tooltip from "@mui/material/Tooltip";
+import PropTypes from "prop-types";
 import React from "react";
 import { FaHeart } from "react-icons/fa";
 import { FiHeart } from "react-icons/fi";
@@ -25,6 +26,7 @@ const HeartIcon = ({ currElem }) => {
     });
     return { idArray };
   };
+
   return (
     <span className="hover:bg-red-100 hover:text-red-600 rounded-full p-2">
       {checkIfExists().idArray.includes(currElem.id) ? (
@@ -35,6 +37,9 @@ const HeartIcon = ({ currElem }) => {
           TransitionProps={{ timeout: 600 }}
         >
           <span
+          onKeyDown={() => {
+            removeFromWishListFunction(currElem.id);
+          }}
             onClick={() => {
               removeFromWishListFunction(currElem.id);
             }}
@@ -52,6 +57,9 @@ const HeartIcon = ({ currElem }) => {
           TransitionProps={{ timeout: 600 }}
         >
           <span
+          onKeyDown={() => {
+            addToWishListFunction(currElem);
+          }}
             onClick={() => {
               addToWishListFunction(currElem);
             }}
@@ -64,6 +72,10 @@ const HeartIcon = ({ currElem }) => {
       )}
     </span>
   );
+};
+
+HeartIcon.propTypes = {
+  currElem: PropTypes.object,
 };
 
 export default HeartIcon;

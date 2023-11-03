@@ -4,10 +4,10 @@ import EmptyCartOrList from "../components/EmptyCartOrList";
 import { useCartContext } from "../context/cartContext";
 import { NavLink } from "react-router-dom";
 import CartTotal from "../components/CartComponent/CartTotal";
+import FormatPrice from "../components/ProductCard/FormatPrice";
 
 const Cart = () => {
   const { cart, emptyCart, total_price } = useCartContext();
-  // console.log(cart);
   if (cart.length === 0) {
     return (
       <EmptyCartOrList
@@ -18,12 +18,11 @@ const Cart = () => {
     );
   } else
     return (
-      <div className="flex flex-col items-center overflow-hidden pt-32">
+      <div className="flex flex-col items-center overflow-hidden pt-[7.5rem] lg:pt-[9.5rem]">
         <header className="tracking-wide font-medium w-fit border-b-2 pb-5 text-center flex items-center gap-2">
           <span>Cart Subtotal ({cart.length} items):</span>
           <span className="text-orange-600 font-semibold text-2xl">
-            ₹{total_price}
-            {/* <small className="text-[10px]">+₹450 shipping</small> */}
+            <FormatPrice price={total_price}/>
           </span>
         </header>
         <div className="w-full items-center text-sm flex justify-evenly mt-4">
@@ -40,6 +39,7 @@ const Cart = () => {
           <span
             className="bg-red-400 text-white rounded-md p-2 shadow-md cursor-pointer hover:scale-110"
             onClick={() => emptyCart()}
+            onKeyDown={() => emptyCart()}
           >
             Clear Cart
           </span>

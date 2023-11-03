@@ -3,6 +3,9 @@ import { IoBagAddOutline, IoBagCheckOutline } from "react-icons/io5";
 import { useProductContext } from "../../context/ProductContext";
 import { useCartContext } from "../../context/cartContext";
 
+
+import PropTypes from 'prop-types'
+
 const ProductFooter = ({ currElem }) => {
   const { openProductModal, getProductDetails } = useProductContext();
 
@@ -17,11 +20,7 @@ const ProductFooter = ({ currElem }) => {
       {productExists ? (
         <span className="flex justify-center">
           <button
-            className="bg-orange-400 py-2 rounded-md hover:scale-105 w-full font-medium flex justify-center gap-2"
-            onClick={() => {
-              openProductModal();
-              getProductDetails(currElem);
-            }}
+            className="bg-orange-400 py-2 rounded-md w-full font-medium flex justify-center gap-2"
           >
             <IoBagCheckOutline className="text-xl" />
             Added Successfully
@@ -43,5 +42,9 @@ const ProductFooter = ({ currElem }) => {
     </>
   );
 };
+
+ProductFooter.propTypes = {
+  currElem: PropTypes.object,
+}
 
 export default ProductFooter;

@@ -13,7 +13,7 @@ const Categories = () => {
   // console.log(newCategory);
 
   return (
-    <>
+    
       <div className="flex flex-col gap-2 w-full">
         <header className="border-b-2 border-purple-600 pb-2 text-sm md:text-base w-fit font-medium">
           <h3>Filter Categories</h3>
@@ -34,6 +34,7 @@ const Categories = () => {
               key={index}
               className="text-xs capitalize md:text-sm relative group cursor-pointer hover:bg-purple-200 hover:pl-2 hover:font-medium hover:text-purple-700 w-full p-1 hover:border-r-4 hover:border-purple-600"
               onClick={() => setCategory(category)}
+              onKeyDown={() => setCategory(category)}
             >
               <main className="flex justify-between items-center gap-1 mt-1">
                 <p>{category}</p>
@@ -43,7 +44,7 @@ const Categories = () => {
           );
         })}
       </div>
-    </>
+
   );
 };
 

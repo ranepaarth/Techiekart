@@ -3,10 +3,12 @@ import reducer from "../reducers/wishlistReducer";
 const wishlistContext = createContext();
 
 const getLocalWishListItems = () => {
-    let localCartData = localStorage.getItem("WishListCart")
+    let localWishlistData = localStorage.getItem("WishListCart")
     // console.log(localCartData)
-    if(localCartData.length === 0) return [];
-    else return JSON.parse(localCartData)
+    // if(localCartData.length === 0) return [];
+    const parsedData = JSON.parse(localWishlistData);
+    if (!Array.isArray(parsedData)) return [];
+    return parsedData
 }
 
 const initialState = {

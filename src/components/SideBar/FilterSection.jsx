@@ -12,6 +12,7 @@ const FilterSection = () => {
           <span
             className="bg-white p-1 rounded-md font-medium text-purple-500 text-sm border-purple-400 border-2 hover:text-white hover:bg-purple-400"
             onClick={clearFilter}
+            onKeyDown={clearFilter}
           >
             Clear Filter
           </span>
