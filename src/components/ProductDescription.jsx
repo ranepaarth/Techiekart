@@ -5,7 +5,7 @@ const ProductDescription = ({ description }) => {
   return (
     <div>
       <span className="capitalize font-medium ">description:</span>
-      <p className="text-sm">{description}</p>
+      <p className="text-xs">{description}</p>
     </div>
   );
 };
