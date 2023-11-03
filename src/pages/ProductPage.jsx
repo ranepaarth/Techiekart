@@ -31,12 +31,13 @@ const ProductPage = () => {
           {/* <main className="ml-auto lg:ml-48 md:mr-3 pb-4"> */}
           <main className="min-w-full">
             {/* <header className="p-2 mt-3 border rounded-lg shadow-sm w-[64dvw] lg:w-[75dvw] xl:w-[79dvw] ml-auto xl:ml-[3rem]"> */}
-            <header className="p-2 border rounded-lg shadow-sm">
+            <header className="p-2 border rounded-lg shadow-sm bg-white">
               <SortSection />
             </header>
             <GridView products={filter_products} />
           </main>
         </div>
+
       </>
     );
 };
