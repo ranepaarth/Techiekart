@@ -10,21 +10,17 @@ import { useWishlistContext } from "../context/wishlistContext";
 
 //Icons
 import { IoAddOutline } from "react-icons/io5";
-import WishListProductDetailModal from "../components/WishListComponent/WishListProductDetailModal";
 import { useProductContext } from "../context/ProductContext";
+import Modal from "../components/Modal";
 
 const WishList = () => {
   const { wishListCart, clearWishlist } = useWishlistContext();
-  const { productDetails, show } = useProductContext();
+  const { show } = useProductContext();
 
+  if(show){
+    return <Modal />
+  }
 
-
-  if (show)
-    return (
-      <div id="popup-modal">
-        <WishListProductDetailModal details={productDetails} />
-      </div>
-    );
   if (wishListCart.length === 0) {
     return (
       <EmptyCartOrList
@@ -34,10 +30,16 @@ const WishList = () => {
       />
     );
   }
+
   return (
     <>
-      <header className="pt-[9rem] lg:pt-[11rem] text-center text-xl font-medium">
-        <span className="border-b-4 pb-3 border-purple-400">My WishList</span>
+      <header className="pt-[7.5rem] lg:pt-[9.5rem] text-xl font-medium flex justify-center">
+        <span className="border-b-4 pb-3 border-purple-400 flex justify-center items-center gap-3 w-fit">
+          <p className="font">My WishList: </p>
+          <p className="text-lg font-semibold text-neutral-500">
+            {wishListCart.length} {wishListCart.length === 1 ? "Item" : "Items"}
+          </p>
+        </span>
       </header>
       <div className="flex justify-center gap-10 md:gap-20 mt-10">
         <NavLink to="/products">
@@ -54,26 +56,27 @@ const WishList = () => {
       </div>
       <section className="flex justify-center">
         <main
-          className={`border shadow-md rounded-md w-fit mx-6 my-10 md:mx-4 p-4 grid ${
-            wishListCart.length === 1 ? "grid-cols-1" : "grid-cols-2"
-          } md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 bg-neutral-50`}
+          className={` shadow-md rounded-md w-fit mx-6 my-10 md:mx-4 p-4 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 bg-neutral-100 border`}
         >
           {wishListCart.map((item, index) => {
             return (
               <article
-                className="bg-white border p-3 shadow-sm rounded-sm"
+                className="bg-neutral-50 border p-3 shadow-sm rounded-sm"
                 key={index}
               >
                 <WishListItem item={item} />
+                {console.log(item)}
               </article>
             );
           })}
           <NavLink to="/products">
-            <article className="w-56 h-48 flex flex-col justify-center items-center cursor-pointer select-none hover:scale-110">
-              <IoAddOutline className="mt-4 text-5xl border-2 border-purple-600 rounded-full p-2 text-purple-400 border-dashed " />
-              <button className="px-3 py-1 mt-5 border text-white bg-purple-600 rounded-full border-purple-600 font-semibold ">
-                Add Item
-              </button>
+            <article className="flex h-full items-center justify-center cursor-pointer select-none hover:scale-110">
+              <span className="flex flex-col justify-center items-center">
+                <IoAddOutline className="mt-4 text-5xl border-2 border-purple-600 rounded-full p-2 text-purple-400 border-dashed " />
+                <button className="px-3 py-1 mt-5 border text-white bg-purple-600 rounded-full border-purple-600 font-semibold ">
+                  Add Item
+                </button>
+              </span>
             </article>
           </NavLink>
         </main>
@@ -83,3 +86,14 @@ const WishList = () => {
 };
 
 export default WishList;
+
+
+/* {show ? (
+        <main className="fixed top-0 bottom-0 right-0 z-50">
+          <WishListProductDetailModal />
+        </main>
+      ) : (
+        <main className="hidden">
+          <WishListProductDetailModal />
+        </main>
+      )}*/

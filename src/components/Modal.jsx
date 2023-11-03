@@ -1,19 +1,27 @@
 import React from "react";
-import ButtonClose from "../ButtonClose";
-import ProductTitle from "../ProductCard/ProductTitle";
-import ProductDescription from "../ProductDescription";
-import ProductDetailImage from "../ProductDetailImage";
-import ProductPrice from "../ProductPrice";
-import ProductRating from "../ProductRating";
-import WishListProdDetailFooter from "./WishListProdDetailFooter";
+import { useProductContext } from "../context/ProductContext";
+import ButtonClose from "./ButtonClose";
+import OriginalPrice from "./ProductCard/OriginalPrice";
+import ProductDetailFooter from "./ProductCard/ProductDetailModal/ProductDetailFooter";
+import ProductTitle from "./ProductCard/ProductTitle";
+import ProductDescription from "./ProductDescription";
+import ProductDetailImage from "./ProductDetailImage";
+import ProductPrice from "./ProductPrice";
+import ProductRating from "./ProductRating";
+import WishListProdDetailFooter from "./WishListComponent/WishListProdDetailFooter";
 
-import { useProductContext } from "../../context/ProductContext";
-import OriginalPrice from "../ProductCard/OriginalPrice";
-
-const WishListProductDetailModal = () => {
+const Modal = ({ page }) => {
   const { closeProductModal, productDetails } = useProductContext();
-  const { title, brand, thumbnail, rating, price, description, id, discountPercentage } =
-    productDetails;
+  const {
+    title,
+    brand,
+    thumbnail,
+    rating,
+    price,
+    description,
+    id,
+    discountPercentage,
+  } = productDetails;
 
   if (!productDetails) return;
   else
@@ -52,10 +60,15 @@ const WishListProductDetailModal = () => {
               </span>
             </span>
           </main>
-          <WishListProdDetailFooter details={productDetails} id={id} />
+
+          {page === "productPage" ? (
+            <ProductDetailFooter details={productDetails} />
+          ) : (
+            <WishListProdDetailFooter details={productDetails} id={id} />
+          )}
         </article>
       </section>
     );
 };
 
-export default WishListProductDetailModal;
+export default Modal;
