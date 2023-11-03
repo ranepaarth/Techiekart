@@ -9,6 +9,10 @@
   html{
     font-family: "Montserrat",sans-serif;
   }
+
+  body{
+    background:rgba(249, 249, 249, 0.872);
+  }
 }
 
 ::-webkit-scrollbar {
