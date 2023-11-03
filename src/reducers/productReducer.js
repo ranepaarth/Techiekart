@@ -13,8 +13,7 @@ const productReducer = (state, action) => {
       };
 
     case "GET_PRODUCT_DETAILS":
-      // const productDetail = action.payload
-      // console.log(productDetail)
+      const productDetail = action.payload
 
       return {
         ...state,
