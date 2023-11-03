@@ -10,8 +10,11 @@ import { AiFillDelete } from "react-icons/ai";
 const WishListItem = ({ item }) => {
   const { removeFromWishList } = useWishlistContext();
   const { addToCart } = useCartContext();
-  const { getProductDetails } = useProductContext();
-  const { image, id, name } = item;
+  const { getProductDetails} = useProductContext();
+  const { thumbnail, id, title } = item;
+
+  // console.log(item)
+
   return (
     <>
       <figure
@@ -23,8 +26,8 @@ const WishListItem = ({ item }) => {
         }}
       >
         <img
-          src={image}
-          alt={name}
+          src={thumbnail}
+          alt={title}
           className=" w-48 h-28 cursor-pointer lg:h-32"
         />
       </figure>

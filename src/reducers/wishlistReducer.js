@@ -1,27 +1,26 @@
 const wishlistReducer = (state, action) => {
   switch (action.type) {
     case "ADD_TO_WISHLIST":
-      let {product,amount,addedToWishlist} = action.payload;
+      let { product } = action.payload;
 
-      console.log(product)
+      console.log(product);
 
       let wishlistProduct;
       wishlistProduct = {
         id: product.id,
-        name: product.title,
-        amount,
-        image: product.thumbnail,
+        title: product.title,
+        thumbnail: product.thumbnail,
         price: product.price,
-        desc: product.description,
+        description: product.description,
         stock: product.stock,
         brand: product.brand,
-        addedToWishlist,
         rating: product.rating,
+        discountPercentage: product.discountPercentage
       };
 
       console.log(wishlistProduct);
       return {
-        // ...state,
+        ...state,
         wishListCart: [...state.wishListCart, wishlistProduct],
       };
 
@@ -35,11 +34,11 @@ const wishlistReducer = (state, action) => {
         wishListCart: updatedCart,
       };
 
-      case "CLEAR_WISHLIST":
-        return {
-          ...state,
-          wishListCart:[]
-        }
+    case "CLEAR_WISHLIST":
+      return {
+        ...state,
+        wishListCart: [],
+      };
 
     default:
       return {
