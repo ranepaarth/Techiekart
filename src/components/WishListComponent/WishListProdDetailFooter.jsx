@@ -7,7 +7,7 @@ import { useProductContext } from "../../context/ProductContext";
 import { useCartContext } from "../../context/cartContext";
 import { useWishlistContext } from "../../context/wishlistContext";
 
-const WishListProdDetailFooter = ({ details, id }) => {
+const WishListProdDetailFooter = ({ details}) => {
   const { addToCart } = useCartContext();
   const { removeFromWishList } = useWishlistContext();
   const { closeProductModal } = useProductContext();
@@ -23,7 +23,7 @@ const WishListProdDetailFooter = ({ details, id }) => {
           <button
             className="flex items-center text-red-600 hover:scale-125"
             onClick={() => {
-              removeFromWishList(id);
+              removeFromWishList(details?.id);
               closeProductModal();
             }}
           >
@@ -34,7 +34,7 @@ const WishListProdDetailFooter = ({ details, id }) => {
       <button
         className="bg-orange-400 py-2 rounded-lg shadow-md text-center cursor-pointer capitalize hover:scale-105"
         onClick={() => {
-          removeFromWishList(id);
+          removeFromWishList(details?.id);
           addToCart(details);
           closeProductModal();
         }}

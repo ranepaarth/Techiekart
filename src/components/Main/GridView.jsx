@@ -1,9 +1,8 @@
 import React from "react";
 import Product from "../ProductCard/Product";
-import ProductDetailModal from "../ProductCard/ProductDetailModal/ProductDetailModal";
 
 import PropTypes from "prop-types";
-import Modal from '../Modal'
+import Modal from "../Modal";
 
 import { useProductContext } from "../../context/ProductContext";
 import BackToTop from "../BackToTop";
@@ -11,12 +10,15 @@ import BackToTop from "../BackToTop";
 const GridView = ({ products }) => {
   const { show } = useProductContext();
 
-  if (show) {
-    return <Modal page={'productPage'}/>;
-  }
-
   return (
     <>
+      {show ? (
+        <div className="fixed top-0 right-0 left-0 bottom-0 z-10">
+          <Modal page={"productPage"} />
+        </div>
+      ) : (
+        ""
+      )}
       <section className="mx-5 grid md:grid-cols-2 lg:grid-cols-3 my-3 xl:mt-5 gap-4 xl:gap-x-10 xl:gap-y-8">
         {products.map((currElem) => {
           return (

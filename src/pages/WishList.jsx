@@ -10,16 +10,12 @@ import { useWishlistContext } from "../context/wishlistContext";
 
 //Icons
 import { IoAddOutline } from "react-icons/io5";
-import { useProductContext } from "../context/ProductContext";
 import Modal from "../components/Modal";
+import { useProductContext } from "../context/ProductContext";
 
 const WishList = () => {
   const { wishListCart, clearWishlist } = useWishlistContext();
   const { show } = useProductContext();
-
-  if(show){
-    return <Modal />
-  }
 
   if (wishListCart.length === 0) {
     return (
@@ -33,6 +29,13 @@ const WishList = () => {
 
   return (
     <>
+      {show ? (
+        <div className="fixed top-0 right-0 left-0 bottom-0 z-10">
+          <Modal />
+        </div>
+      ) : (
+        ""
+      )}
       <header className="pt-[7.5rem] lg:pt-[9.5rem] text-xl font-medium flex justify-center">
         <span className="border-b-4 pb-3 border-purple-400 flex justify-center items-center gap-3 w-fit">
           <p className="font">My WishList: </p>
@@ -86,7 +89,6 @@ const WishList = () => {
 };
 
 export default WishList;
-
 
 /* {show ? (
         <main className="fixed top-0 bottom-0 right-0 z-50">

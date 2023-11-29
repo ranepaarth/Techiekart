@@ -12,19 +12,7 @@ import WishListProdDetailFooter from "./WishListComponent/WishListProdDetailFoot
 
 const Modal = ({ page }) => {
   const { closeProductModal, productDetails } = useProductContext();
-  const {
-    title,
-    brand,
-    thumbnail,
-    rating,
-    price,
-    description,
-    id,
-    discountPercentage,
-  } = productDetails;
 
-  if (!productDetails) return;
-  else
     return (
       <section
         className="bg-black w-screen h-screen absolute top-0 right-0 bottom-0 z-50 flex justify-center items-center bg-opacity-80 px-10 cursor-default"
@@ -35,28 +23,28 @@ const Modal = ({ page }) => {
           <ButtonClose />
           <main className="flex flex-col h-full gap-4">
             <ProductTitle
-              title={title}
-              brand={brand}
+              title={productDetails?.title}
+              brand={productDetails?.brand}
               paddingTop={0}
               text={"xl"}
               font={"semibold"}
               textCenter={"center"}
               underline={"underline"}
             />
-            <ProductDetailImage image={thumbnail} />
+            <ProductDetailImage image={productDetails?.thumbnail} />
 
-            <ProductDescription description={description} />
+            <ProductDescription description={productDetails?.description} />
 
-            <ProductRating rating={rating} />
+            <ProductRating rating={productDetails?.rating} />
 
             <span className="flex flex-col justify-center gap-3">
               <p className={"font-medium"}>ProductPrice:</p>
               <span className="flex items-baseline gap-3">
                 <ProductPrice
-                  price={price}
-                  discountPercentage={discountPercentage}
+                  price={productDetails?.price}
+                  discountPercentage={productDetails?.discountPercentage}
                 />
-                <OriginalPrice origPrice={price} />
+                <OriginalPrice origPrice={productDetails?.price} />
               </span>
             </span>
           </main>
@@ -64,7 +52,7 @@ const Modal = ({ page }) => {
           {page === "productPage" ? (
             <ProductDetailFooter details={productDetails} />
           ) : (
-            <WishListProdDetailFooter details={productDetails} id={id} />
+            <WishListProdDetailFooter details={productDetails} id={productDetails?.id} />
           )}
         </article>
       </section>
