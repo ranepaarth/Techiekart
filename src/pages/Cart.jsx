@@ -18,7 +18,7 @@ const Cart = () => {
     );
   } else
     return (
-      <div className="flex flex-col items-center overflow-hidden pt-[7.5rem] lg:pt-[9.5rem]">
+      <div className="flex flex-col items-center overflow-hidden pt-[5.5rem] lg:pt-[7.5rem]">
         <header className="tracking-wide font-medium w-fit border-b-2 pb-5 text-center flex items-center gap-2">
           <span>Cart Subtotal ({cart.length} items):</span>
           <span className="text-orange-600 font-semibold text-2xl">

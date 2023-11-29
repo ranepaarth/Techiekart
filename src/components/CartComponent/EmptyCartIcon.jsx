@@ -9,7 +9,7 @@ import PropTypes from 'prop-types'
 const EmptyCartIcon = ({ Icon }) => {
   return (
       <NavLink
-        to="/products"
+        to="/"
         className="w-[400px] h-1/3 flex justify-center items-center border-2 rounded-md hover:shadow-md lg:hover:shadow-none  hover:scale-110"
       >
         <main className="relative cursor-pointer">

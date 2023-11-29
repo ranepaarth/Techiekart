@@ -3,7 +3,6 @@ import { NavLink, useLocation } from "react-router-dom";
 import HorizontalLine from "./HorizontalLine";
 import NavigationIcons from "./NavigationIcons";
 import SearchBox from "./SearchBox";
-import SubHeader from "./SubHeader";
 
 import logo from "../../assets/ecomLogo.png";
 import HeaderCategories from "./HeaderCategories";
@@ -31,14 +30,7 @@ const Header = () => {
         </div>
       </div>
 
-      {(currRoute === "cart") || (currRoute === "wishList") ? (
-        <HorizontalLine />
-      ) : (
-        ""
-      )}
-      {/* <div className={currRoute === "cart" || currRoute === "wishList" ? "" : "hidden"}><HorizontalLine /></div> */}
-      {/* <div className={`${currRoute === "cart" || currRoute === "wishList" ? "hidden" : "visible"}`}><HorizontalLine /></div> */}
-      <SubHeader />
+      {/* <SubHeader /> */}
       <HorizontalLine />
       <HeaderCategories />
     </header>

@@ -5,7 +5,7 @@ import EmptyCartIcon from "./CartComponent/EmptyCartIcon";
 
 const EmptyCart = ({ header, pageName, heroIcon }) => {
   return (
-    <div className="flex justify-center pt-[8rem] lg:pt-[11rem]">
+    <div className="flex justify-center pt-[6rem] lg:pt-[9rem]">
       <section className=" flex flex-col items-center justify-between lg:w-[500px] h-[80vh] lg:h-[73vh] lg:border lg:shadow-md lg:rounded-md">
         <header className="pt-5 text-3xl flex flex-col items-center font-bold">
           <h1 className="capitalize">{header}</h1>
@@ -29,7 +29,7 @@ const EmptyCart = ({ header, pageName, heroIcon }) => {
               You will find a lot of interesting products on our "Products" page
             </p>
           </div>
-          <NavLink to="/products">
+          <NavLink to="/">
             <button className="capitalize mt-8 bg-purple-500 py-2 px-5 rounded-full border-2 border-purple-500 text-white font-semibold hover:scale-110">
               return to products
             </button>
