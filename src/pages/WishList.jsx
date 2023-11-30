@@ -72,7 +72,7 @@ const WishList = () => {
               </article>
             );
           })}
-          <NavLink to="/products">
+          <NavLink to="/">
             <article className="flex h-full items-center justify-center cursor-pointer select-none hover:scale-110">
               <span className="flex flex-col justify-center items-center">
                 <IoAddOutline className="mt-4 text-5xl border-2 border-purple-600 rounded-full p-2 text-purple-400 border-dashed " />

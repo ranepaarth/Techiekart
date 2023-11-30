@@ -1,10 +1,10 @@
 import React from "react";
 import PropTypes from 'prop-types'
-const ProductDetailImage = ({image,widthFull,mdHeight}) => {
+const ProductDetailImage = ({image,widthFull}) => {
   return (
     <figure className="flex justify-center">
-      <span className={`bg-neutral-50 p-2 rounded-md border ${widthFull?"w-full":"w-fit"}`}>
-        <img src={image} alt="" className={`rounded-md h-52 ${widthFull} md:${mdHeight}`} />
+      <span className={`bg-neutral-50 p-2 rounded-md border `}>
+        <img src={image} alt="" className={`rounded-md aspect-video`} />
       </span>
     </figure>
   );
@@ -13,7 +13,6 @@ const ProductDetailImage = ({image,widthFull,mdHeight}) => {
 ProductDetailImage.propTypes ={
   image: PropTypes.string,
   widthFull: PropTypes.string,
-  mdHeight: PropTypes.string,
 }
 
 export default ProductDetailImage;

@@ -26,7 +26,7 @@ const Cart = () => {
           </span>
         </header>
         <div className="w-full items-center text-sm flex justify-evenly mt-4">
-          <NavLink to="/products" className="hover:scale-110">
+          <NavLink to="/" className="hover:scale-110">
             <span className="bg-blue-400 text-white rounded-md p-2 shadow-md cursor-pointer">
               Continue Shopping
             </span>

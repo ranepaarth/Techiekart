@@ -19,7 +19,7 @@ const GridView = ({ products }) => {
       ) : (
         ""
       )}
-      <section className="mx-5 grid md:grid-cols-2 lg:grid-cols-3 my-3 xl:mt-5 gap-4 xl:gap-x-10 xl:gap-y-8">
+      <section className="mx-5 grid max-sm:grid-cols-1 max-md:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 my-3 xl:mt-5 gap-4 xl:gap-x-10 xl:gap-y-8 aspect-auto grow">
         {products.map((currElem) => {
           return (
             <article

@@ -25,7 +25,7 @@ const BackToTop = () => {
   window.addEventListener("scroll", toggleVisible);
 
   return (
-    <span className="fixed flex justify-end w-full bottom-10 right-2 h-5 text-4xl z-40 cursor-pointer text-purple-500">
+    <span className="fixed flex justify-end w-full bottom-10 right-2 h-5 text-4xl z-0 cursor-pointer text-purple-500">
       <FaArrowCircleUp
         onClick={scrollToTop}
         style={{ display: visible ? "inline" : "none" }}
