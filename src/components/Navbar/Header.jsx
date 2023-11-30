@@ -4,8 +4,9 @@ import HorizontalLine from "./HorizontalLine";
 import NavigationIcons from "./NavigationIcons";
 import SearchBox from "./SearchBox";
 
-import logo from "../../assets/ecomLogo.png";
+
 import HeaderCategories from "./HeaderCategories";
+import Logo from "./Logo";
 const Header = () => {
   const location = useLocation();
   const [currRoute] = location.pathname.split("/").filter((item) => item !== "");
@@ -13,14 +14,7 @@ const Header = () => {
     <header className="shadow-sm fixed min-w-full bg-white z-10">
       <div className="flex items-center justify-center gap-4 p-2 text-sm">
         <NavLink to="/">
-          <span className="flex items-center lg:border lg:rounded-full lg:py-1 lg:px-3 lg:hover:shadow-lg">
-            <figure className="hover:scale-110 lg:hover:scale-100">
-              <img src={logo} alt="LOGO" className="w-10 lg:w-12" />
-            </figure>
-            <h2 className="hidden font-semibold md:block md:visible lg:text-xl italic">
-              echiekart
-            </h2>
-          </span>
+          <Logo />
         </NavLink>
         <div>
           <SearchBox />
