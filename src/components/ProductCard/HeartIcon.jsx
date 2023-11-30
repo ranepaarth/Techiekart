@@ -22,14 +22,14 @@ const HeartIcon = ({ currElem }) => {
   const checkIfExists = () => {
     const idArray = [];
     let wishListProduct = wishListCart.find((product) => {
-      if (!idArray.includes(product.id)) idArray.push(product.id);
+      if (!idArray.includes(product?.id)) idArray.push(product?.id);
     });
     return { idArray };
   };
 
   return (
     <span className="hover:bg-red-100 hover:text-red-600 rounded-full p-2">
-      {checkIfExists().idArray.includes(currElem.id) ? (
+      {checkIfExists().idArray.includes(currElem?.id) ? (
         <Tooltip
           title="Remove from Wishlist"
           placement="bottom"
@@ -37,11 +37,11 @@ const HeartIcon = ({ currElem }) => {
           TransitionProps={{ timeout: 600 }}
         >
           <span
-          onKeyDown={() => {
-            removeFromWishListFunction(currElem.id);
-          }}
+            onKeyDown={() => {
+              removeFromWishListFunction(currElem?.id);
+            }}
             onClick={() => {
-              removeFromWishListFunction(currElem.id);
+              removeFromWishListFunction(currElem?.id);
             }}
           >
             <span className="text-red-600">
@@ -57,9 +57,9 @@ const HeartIcon = ({ currElem }) => {
           TransitionProps={{ timeout: 600 }}
         >
           <span
-          onKeyDown={() => {
-            addToWishListFunction(currElem);
-          }}
+            onKeyDown={() => {
+              addToWishListFunction(currElem);
+            }}
             onClick={() => {
               addToWishListFunction(currElem);
             }}
