@@ -1,20 +1,15 @@
-import {
-  useEffect,
-  useContext,
-  createContext,
-  useReducer,
-} from "react";
 import axios from "axios";
+import { createContext, useContext, useEffect, useReducer } from "react";
 
-import reducer from '../reducers/productReducer.js'
+import reducer from "../reducers/productReducer.js";
 
 const AppContext = createContext();
 
 const initialState = {
-  isLoading:false,
+  isLoading: false,
   products: [],
-  productDetails:{},
-  show:false
+  productDetails: {},
+  show: false,
 };
 
 const API = "https://dummyjson.com/products?limit=20";
@@ -36,28 +31,37 @@ const AppProvider = ({ children }) => {
   };
 
   const getProductDetails = (product) => {
-    dispatch({type:"GET_PRODUCT_DETAILS",payload:product})
-  }
+    dispatch({ type: "GET_PRODUCT_DETAILS", payload: product });
+  };
 
-  const openProductModal = ()=> {
-    dispatch({type:"OPEN_PRODUCT_MODAL"})
-  }
-  
-  const closeProductModal = ()=> {
-    dispatch({type:"CLOSE_PRODUCT_MODAL"})
-  }
+  const openProductModal = () => {
+    dispatch({ type: "OPEN_PRODUCT_MODAL" });
+  };
+
+  const closeProductModal = () => {
+    dispatch({ type: "CLOSE_PRODUCT_MODAL" });
+  };
 
   useEffect(() => {
     getProducts(API);
   }, []);
 
   return (
-    <AppContext.Provider value={{ ...state,getProductDetails,openProductModal,closeProductModal}}>{children}</AppContext.Provider>
+    <AppContext.Provider
+      value={{
+        ...state,
+        getProductDetails,
+        openProductModal,
+        closeProductModal,
+      }}
+    >
+      {children}
+    </AppContext.Provider>
   );
 };
 
-const useProductContext = () =>{
-    return useContext(AppContext)
-}
+const useProductContext = () => {
+  return useContext(AppContext);
+};
 
-export {AppProvider,AppContext,useProductContext}
+export { AppContext, AppProvider, useProductContext };
