@@ -45,7 +45,7 @@ const WishList = () => {
         </span>
       </header>
       <div className="flex justify-center gap-10 md:gap-20 mt-10">
-        <NavLink to="/products">
+        <NavLink to="/">
           <button className="capitalize px-3 py-1 bg-blue-400 rounded-md hover:scale-110 text-white">
             add product
           </button>
